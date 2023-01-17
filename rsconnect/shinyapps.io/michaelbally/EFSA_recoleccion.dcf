@@ -1,0 +1,14 @@
+name: EFSA_recoleccion
+title: EFSA_recoleccion
+username:
+account: michaelbally
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 7224890
+bundleId: 6551006
+url: https://michaelbally.shinyapps.io/EFSA_recoleccion/
+when: 1669300540.34894
+lastSyncTime: 1669300540.34896
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: old_app.R

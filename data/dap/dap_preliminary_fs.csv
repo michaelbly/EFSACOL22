@@ -1,0 +1,227 @@
+﻿Indicator Group / Sector;research.question;sub.research.question;repeat.for.variable;independent.variable;independent.variable.type;dependent.variable;dependent.variable.type;hypothesis.type
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;seguridad_alimentaria;departamento;;categorical;sa8_sa;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;seguridad_alimentaria Marginal;departamento;;categorical;sa8_sam;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;Inseguridad_alimentaria Moderada;departamento;;categorical;sa8_iam;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;Inseguridad_alimentaria Severa;departamento;;categorical;sa8_ias;numerical;direct_reporting
+seguridad_alimentaria;% de hogares con {poor, borderline, acceptable} Food Consumption Score;Poor;departamento;;categorical;sa1_poor;numerical;direct_reporting
+seguridad_alimentaria;% de hogares con {poor, borderline, acceptable} Food Consumption Score;Borderline;departamento;;categorical;sa1_borderline;numerical;direct_reporting
+seguridad_alimentaria;% de hogares con {poor, borderline, acceptable} Food Consumption Score;Acceptable;departamento;;categorical;sa1_acceptable;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por Coping Strategies Index Score;fase_1;departamento;;categorical;sa2_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por Coping Strategies Index Score;fase_2;departamento;;categorical;sa2_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por Coping Strategies Index Score;fase_3;departamento;;categorical;sa2_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-CSI Ajuste;1;departamento;;categorical;sa3_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-CSI Ajuste;2;departamento;;categorical;sa3_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-CSI Ajuste;3;departamento;;categorical;sa3_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-CSI Ajuste;4;departamento;;categorical;sa3_iv;numerical;direct_reporting
+seguridad_alimentaria;gastos medios en alimentos por persona;COP;departamento;;categorical;sa4_i_cop;numerical;direct_reporting
+seguridad_alimentaria;gastos medios en alimentos por persona;USD;departamento;;categorical;sa4_i_usd;numerical;direct_reporting
+seguridad_alimentaria;gastos medios totales por persona;COP;departamento;;categorical;sa4_ii_cop;numerical;direct_reporting
+seguridad_alimentaria;gastos medios totales por persona;USD;departamento;;categorical;sa4_ii_usd;numerical;direct_reporting
+seguridad_alimentaria;cuota media FES;cuota media FES;;;categorical;sa4;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por puntaje vulnerabilidad economica de CARI;1;departamento;;categorical;sa6_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por puntaje vulnerabilidad economica de CARI;3;departamento;;categorical;sa6_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por puntaje vulnerabilidad economica de CARI;4;departamento;;categorical;sa6_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares que recurren a estrategias de stress/crisis/emergency para hacer frente a la falta de alimentos o de dinero para comprar alimentos;Stress;departamento;;categorical;sa7_stress;numerical;direct_reporting
+seguridad_alimentaria;% de hogares que recurren a estrategias de stress/crisis/emergency para hacer frente a la falta de alimentos o de dinero para comprar alimentos;Crisis;departamento;;categorical;sa7_crisis;numerical;direct_reporting
+seguridad_alimentaria;% de hogares que recurren a estrategias de stress/crisis/emergency para hacer frente a la falta de alimentos o de dinero para comprar alimentos;Emergency;departamento;;categorical;sa7_emergency;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia;Realizar actividades q pueden poner en riesgo su salud, seguridad o vida, sobre las que prefiere no hablar;departamento;;categorical;sa7_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia;Vender casa o tierra;departamento;;categorical;sa7_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia;Pedir ayuda o donación en la calle para comprar comida;departamento;;categorical;sa7_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia;Sacar a los niños de la escuela;departamento;;categorical;sa7_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia;Reducir gastos en salud (incluyendo medicinas) o educación;departamento;;categorical;sa7_v;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia;Vender activos de producción o medios de transporte (máquina de coser, carretilla, bicicleta, automóvil, otros);departamento;;categorical;sa7_vi;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia;Enviar a los miembros del hogar a comer con familiares/amigos o a comedores comunitarios;departamento;;categorical;sa7_vii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia;Gastar ahorros;departamento;;categorical;sa7_viii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia;Comprar alimentos u otros artículos de primera necesidad a crédito o pedirlos prestados;departamento;;categorical;sa7_ix;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia;Vender activos/bienes del hogar (radio, mobiliario, refrigerador, televisor, joyas, otros);departamento;;categorical;sa7_x;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por LCS para CARI;1;departamento;;categorical;salcs_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por LCS para CARI;2;departamento;;categorical;salcs_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por LCS para CARI;3;departamento;;categorical;salcs_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por LCS para CARI;4;departamento;;categorical;salcs_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por numero de comidas en los ultimos 7 dias;3 comidas o mas;departamento;;categorical;sa9_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por numero de comidas en los ultimos 7 dias;2 comidas;departamento;;categorical;sa9_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por numero de comidas en los ultimos 7 dias;1 comida;departamento;;categorical;sa9_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por numero de comidas en los ultimos 7 dias;ninguna;departamento;;categorical;sa9_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por numero de comidas ayer;3 comidas o mas;departamento;;categorical;sa10_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por numero de comidas ayer;2 comidas;departamento;;categorical;sa10_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por numero de comidas ayer;1 comida;departamento;;categorical;sa10_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por numero de comidas ayer;ninguna;departamento;;categorical;sa10_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-N Vitamina A;0 dias;departamento;;categorical;sa_16_vita1;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-N Vitamina A;1-6 dias;departamento;;categorical;sa_16_vita2;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-N Vitamina A;7 dias;departamento;;categorical;sa_16_vita3;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-N Proteina;0 dias;departamento;;categorical;sa_17_protein1;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-N Proteina;1-6 dias;departamento;;categorical;sa_17_protein2;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-N Vitamina A;7 dias;departamento;;categorical;sa_17_protein3;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-N Vitamina A;0 dias;departamento;;categorical;sa_19_iron1;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-N Vitamina A;1-6 dias;departamento;;categorical;sa_19_iron2;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por FCS-N Vitamina A;7 dias;departamento;;categorical;sa_19_iron3;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por categoria HDDS;0_2;departamento;;categorical;sa_15_cat1;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por categoria HDDS;3_4;departamento;;categorical;sa_15_cat2;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por categoria HDDS;5;departamento;;categorical;sa_15_cat3;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por categoria HDDS;>5;departamento;;categorical;sa_15_cat4;numerical;direct_reporting
+seguridad_alimentaria;% de hogares que han empleado al menos una estrategia CSI en los ultimos 7 dias;% de hogares que han empleado al menos una estrategia CSI en los ultimos 7 dias;departamento;;categorical;sa11;numerical;direct_reporting
+seguridad_alimentaria;media numero de dias en que el hogar ha empleado una estrategia CSI por estrategia;Comer alimentos menos preferidos;departamento;;categorical;sa13_i;numerical;direct_reporting
+seguridad_alimentaria;media numero de dias en que el hogar ha empleado una estrategia CSI por estrategia;Pedir prestados alimentos;departamento;;categorical;sa13_ii;numerical;direct_reporting
+seguridad_alimentaria;media numero de dias en que el hogar ha empleado una estrategia CSI por estrategia;Reducir el consumo de los adultos;departamento;;categorical;sa13_iii;numerical;direct_reporting
+seguridad_alimentaria;media numero de dias en que el hogar ha empleado una estrategia CSI por estrategia;Reducir numero de comidas;departamento;;categorical;sa13_iv;numerical;direct_reporting
+seguridad_alimentaria;media numero de dias en que el hogar ha empleado una estrategia CSI por estrategia;Reducir tamano porciones;departamento;;categorical;sa13_v;numerical;direct_reporting
+seguridad_alimentaria;% de hogares que no han utilizado ningun estrategia de afrontamiento;% de hogares que no han utilizado ningun estrategia de afrontamiento;departamento;;categorical;ningun_estrategia;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia CSI;Comer alimentos menos preferidos;;;categorical;sa15_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia CSI;Comer alimentos a credito;;;categorical;sa15_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia CSI;Reducir las porciones de los adultos;;;categorical;sa15_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia CSI;Reducir numero de comidas;;;categorical;sa15_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia CSI;Reducir tamano de las porciones;;;categorical;sa15_v;numerical;direct_reporting
+seguridad_alimentaria;% de hogares que no han empleado ninguna estrategia LCS;% de hogares que no han empleado ninguna estrategia LCS;;;categorical;ningun_estrategia;numerical;direct_reporting
+seguridad_alimentaria;% de hogares según la fuente principal de los ingresos;Trabajo (cualquier actividad economica que genera ingresos);departamento;;categorical;so2_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares según la fuente principal de los ingresos;Pension (sistema de proteccion social);departamento;;categorical;so2_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares según la fuente principal de los ingresos;Asistencia del gobierno;departamento;;categorical;so2_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares según la fuente principal de los ingresos;Asistencia de naciones unidas, ONGs, organizaciones caritativas;departamento;;categorical;so2_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares según la fuente principal de los ingresos;Remesas de migrantes o ayuda de familiares amigos;departamento;;categorical;so2_v;numerical;direct_reporting
+seguridad_alimentaria;% de hogares según la fuente principal de los ingresos;No recibe ingresos de ningun tipo;departamento;;categorical;so2_vi;numerical;direct_reporting
+situacion_socioeconomica;ingresos promedio mensuales por miembro del hogar;COP;departamento;;categorical;so3_cop;numerical;direct_reporting
+situacion_socioeconomica;ingresos promedio mensuales por miembro del hogar;USD;departamento;;categorical;so3_usd;numerical;direct_reporting
+situacion_socioeconomica;% de hogares que declaran tener una deuda en el momento de la recogida de datos;% de hogares que declaran tener una deuda en el momento de la recogida de datos;departamento;;categorical;so6;numerical;direct_reporting
+situacion_socioeconomica;% de hogares pobres (LP-DANE);% de hogares pobres (LP-DANE);departamento;;categorical;so4;numerical;direct_reporting
+situacion_socioeconomica;% de hogares en pobreza extrema (LPE-DANE);% de hogares en pobreza extrema (LPE-DANE);departamento;;categorical;so5;numerical;direct_reporting
+situacion_socioeconomica;Importe medio de la deuda;Importe medio de la deuda;departamento;;categorical;so7;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por motivo de su deuda;Comprar comida;departamento;;categorical;so8_i;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por motivo de su deuda;Comprar insumos productivos;departamento;;categorical;so8_ii;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por motivo de su deuda;Comprar ropa zapatos;departamento;;categorical;so8_iii;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por motivo de su deuda;Cubrir gastos de salud;departamento;;categorical;so8_iv;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por motivo de su deuda;Cubrir servicios basicos como agua y electricidad;departamento;;categorical;so8_v;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por motivo de su deuda;Pagar la escuela o gastos de educacion;departamento;;categorical;so8_vi;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por motivo de su deuda;Pagar renta o alquiler de la vivienda;departamento;;categorical;so8_vii;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por motivo de su deuda;Pagar viajes;departamento;;categorical;so8_viii;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por motivo de su deuda;Compra de activos;departamento;;categorical;so8_ix;numerical;direct_reporting
+situacion_socioeconomica;% de hogares que declaran haber disminuido sus ingresos en los ultimos 12 meses;Aumentaron los ingresos;departamento;;categorical;so9_i;numerical;direct_reporting
+situacion_socioeconomica;% de hogares que declaran haber disminuido sus ingresos en los ultimos 12 meses;Disminuyeron los ingresos;departamento;;categorical;so9_ii;numerical;direct_reporting
+situacion_socioeconomica;% de hogares que declaran haber disminuido sus ingresos en los ultimos 12 meses;No hubo cambios;departamento;;categorical;so9_iii;numerical;direct_reporting
+situacion_socioeconomica;% de hogares que declaran haber disminuido sus ingresos en los ultimos 12 meses;Se perdieron los ingresos por completo;departamento;;categorical;so9_iv;numerical;direct_reporting
+situacion_socioeconomica;cuota media del gasto en renta (en % del gasto total);cuota media del gasto en renta (en % del gasto total);departamento;;categorical;so11;numerical;direct_reporting
+situacion_socioeconomica;cuota media del gasto en gastos medicos o cuidado de la salud (en % del gasto total);cuota media del gasto en gastos medicos o cuidado de la salud (en % del gasto total);departamento;;categorical;so12;numerical;direct_reporting
+situacion_socioeconomica;cuota media del gasto en educacion (en % del gasto total);cuota media del gasto en educacion (en % del gasto total);departamento;;categorical;so13;numerical;direct_reporting
+situacion_socioeconomica;cuota media del gasto en gastos pago de deudas (en % del gasto total);cuota media del gasto en gastos pago de deudas (en % del gasto total);departamento;;categorical;so14;numerical;direct_reporting
+situacion_socioeconomica;% de hogares que declaran haber ahorrado dinero en los ultimos 6 meses;% de hogares que declaran haber ahorrado dinero en los ultimos 6 meses;departamento;;categorical;so15;numerical;direct_reporting
+situacion_socioeconomica;Cuota media del ahorro;Cuota media del ahorro;departamento;;categorical;so16;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por rangos de ingresos pp;<100,000;departamento;;categorical;so19_i;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por rangos de ingresos pp;100,000-200,000;departamento;;categorical;so19_ii;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por rangos de ingresos pp;200,000-300,000;departamento;;categorical;so19_iii;numerical;direct_reporting
+situacion_socioeconomica;% de hogares por rangos de ingresos pp;>300,000;departamento;;categorical;so19_iv;numerical;direct_reporting
+asistencia_humanitaria;% de hogares que declaran haber recibido ayuda de una organizacion no gubernamental en los ultimos 6 meses;% de hogares que declaran haber recibido ayuda de una organizacion no gubernamental en los ultimos 6 meses;departamento;;categorical;ah1;numerical;direct_reporting
+asistencia_humanitaria;% de hogares que declaran haber recibido ayuda del gobierno en los ultimos 6 meses;% de hogares que declaran haber recibido ayuda del gobierno en los ultimos 6 meses;departamento;;categorical;ah2;numerical;direct_reporting
+asistencia_humanitaria;% de hogares que declaran haber recibido ayuda del Programa Mundial de Alimentos en los ultimos 6 meses;% de hogares que declaran haber recibido ayuda del Programa Mundial de Alimentos en los ultimos 6 meses;departamento;;categorical;ah3;numerical;direct_reporting
+asistencia_humanitaria;% de hogares que declaran haber recibido ayuda de su comunidad, familia o amigos para cubrir el costo de alimentos u otras necesidades en los ultimos 6 meses;% de hogares que declaran haber recibido ayuda de su comunidad, familia o amigos para cubrir el costo de alimentos u otras necesidades en los ultimos 6 meses;departamento;;categorical;ah4;numerical;direct_reporting
+asistencia_humanitaria;% de hogares que declaran haber recibido ayuda de su comunidad, familia o amigos para cubrir el costo de alimentos u otras necesidades en los ultimos 6 meses por tipo de familiares que han prestado la asistencia;Amigos;departamento;;categorical;ah4_i;numerical;direct_reporting
+asistencia_humanitaria;% de hogares que declaran haber recibido ayuda de su comunidad, familia o amigos para cubrir el costo de alimentos u otras necesidades en los ultimos 6 meses por tipo de familiares que han prestado la asistencia;Familiares que viven en Colombia;departamento;;categorical;ah4_ii;numerical;direct_reporting
+asistencia_humanitaria;% de hogares que declaran haber recibido ayuda de su comunidad, familia o amigos para cubrir el costo de alimentos u otras necesidades en los ultimos 6 meses por tipo de familiares que han prestado la asistencia;Familiares que viven fuera de Colombia;departamento;;categorical;ah4_iii;numerical;direct_reporting
+asistencia_humanitaria;% de hogares que declaran haber recibido ayuda de su comunidad, familia o amigos para cubrir el costo de alimentos u otras necesidades en los ultimos 6 meses por tipo de familiares que han prestado la asistencia;Iglesia;departamento;;categorical;ah4_iv;numerical;direct_reporting
+asistencia_humanitaria;% de hogares que declaran haber recibido ayuda de su comunidad, familia o amigos para cubrir el costo de alimentos u otras necesidades en los ultimos 6 meses por tipo de familiares que han prestado la asistencia;Miembros de la Comunidad;departamento;;categorical;ah4_v;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de vivienda;Apartamento;departamento;;categorical;v1_i;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de vivienda;Casa;departamento;;categorical;v1_ii;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de vivienda;Otro tipo de estructura;departamento;;categorical;v1_iii;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de vivienda;Habitacion en un inquilinato;departamento;;categorical;v1_iv;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de vivienda;Situacion de calle;departamento;;categorical;v1_v;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de vivienda;Otro;departamento;;categorical;v1_vi;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de vivienda;Vivienda improvisada;departamento;;categorical;v1_vii;numerical;direct_reporting
+vivienda_y_activos;% de hogares que declaran tener los siguentes servicios en su vivienda;Servicio acueducto;departamento;;categorical;v2_i;numerical;direct_reporting
+vivienda_y_activos;% de hogares que declaran tener los siguentes servicios en su vivienda;Servicios energia electrica;departamento;;categorical;v2_ii;numerical;direct_reporting
+vivienda_y_activos;% de hogares que declaran tener los siguentes servicios en su vivienda;Servicios gas;departamento;;categorical;v2_iii;numerical;direct_reporting
+vivienda_y_activos;% de hogares que declaran tener los siguentes servicios en su vivienda;Servicios alcantarillado;departamento;;categorical;v2_iv;numerical;direct_reporting
+vivienda_y_activos;% de hogares que declaran tener los siguentes servicios en su vivienda;Servicios recoleccion basura;departamento;;categorical;v2_v;numerical;direct_reporting
+vivienda_y_activos;% de hogares que reportan que el agua del acueducto no llega las 24 horas del dia durante los siete dias de la semana;% de hogares que reportan que el agua del acueducto no llega las 24 horas del dia durante los siete dias de la semana;departamento;;categorical;v3;numerical;direct_reporting
+vivienda_y_activos;% de hogares en los que todos los miembros del hogar duermen en la misma habitacion;% de hogares en los que todos los miembros del hogar duermen en la misma habitacion;departamento;;categorical;v4;numerical;direct_reporting
+vivienda_y_activos;% de hogares por rangos de personas por habitación;1;departamento;;categorical;v5_i;numerical;direct_reporting
+vivienda_y_activos;% de hogares por rangos de personas por habitación;entre 1 y 2;departamento;;categorical;v5_ii;numerical;direct_reporting
+vivienda_y_activos;% de hogares por rangos de personas por habitación;mas que 2;departamento;;categorical;v5_iii;numerical;direct_reporting
+vivienda_y_activos;% de hogares que utilizan servicios de saneamiento mejorados;% de hogares que utilizan servicios de saneamiento mejorados;departamento;;categorical;v6;numerical;direct_reporting
+vivienda_y_activos;% de hogares con fuentes de agua mejoradas;% de hogares con fuentes de agua mejoradas;departamento;;categorical;v7;numerical;direct_reporting
+vivienda_y_activos;% de hogares que declaran que cocinan en una habitacion que solo se utiliza para cocinar;% de hogares que declaran que cocinan en una habitacion que solo se utiliza para cocinar;departamento;;categorical;v8;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de energia o combustible con que concinan en su hogar;Electricidad;departamento;;categorical;v9_i;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de energia o combustible con que concinan en su hogar;Gas natural conectado a red publica;departamento;;categorical;v9_ii;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de energia o combustible con que concinan en su hogar;Gas propano en cilindro o pipeta;departamento;;categorical;v9_iii;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de energia o combustible con que concinan en su hogar;Lena, madera o carbon de lena;departamento;;categorical;v9_iv;numerical;direct_reporting
+vivienda_y_activos;% de hogares por tipo de energia o combustible con que concinan en su hogar;Petroleo, gasolina, kerosene, alcohol;departamento;;categorical;v9_v;numerical;direct_reporting
+vivienda_y_activos;% de hogares por sexo de la persona que tiene el titulo de propriedad de la vivienda;hombre;departamento;;categorical;v10_i;numerical;direct_reporting
+vivienda_y_activos;% de hogares por sexo de la persona que tiene el titulo de propriedad de la vivienda;mujer;departamento;;categorical;v10_ii;numerical;direct_reporting
+vivienda_y_activos;% de hogares por sexo de la persona que tiene el titulo de propriedad de la vivienda;ambos;departamento;;categorical;v10_iii;numerical;direct_reporting
+vivienda_y_activos;% de hogares sin telefono movil;% de hogares sin telefono movil;departamento;;categorical;v11;numerical;direct_reporting
+vivienda_y_activos;% de hogares que declaran que la tierra o arena es el material principal de los pisos de la vivienda;% de hogares que declaran que la tierra o arena es el material principal de los pisos de la vivienda;departamento;;categorical;v12;numerical;direct_reporting
+vivienda_y_activos;% de hogares que declaran que la lata u otros materiales improvisados son el material principal de sus paredes;% de hogares que declaran que la lata u otros materiales improvisados son el material principal de sus paredes;departamento;;categorical;v13;numerical;direct_reporting
+vivienda_y_activos;% de hogares que declaran que la fuente principal de agua potable es el grifo publico o compartido, el pozo, el rio o el agua lluvia;% de hogares que declaran que la fuente principal de agua potable es el grifo publico o compartido, el pozo, el rio o el agua lluvia;departamento;;categorical;v14;numerical;direct_reporting
+vivienda_y_activos;% de hogares que declaran compartir su instalacion de saneamiento con otros hogares;% de hogares que declaran compartir su instalacion de saneamiento con otros hogares;departamento;;categorical;v16;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;En arriendo/subarriendo;;;categorical;v17_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;En usufructo;;;categorical;v17_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;Paga diario;;;categorical;v17_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;Otra;;;categorical;v17_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;Posesion sin titulo;;;categorical;v17_v;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;Propia la estan pagando;;;categorical;v17_vi;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;Propia, totalmente pagada;;;categorical;v17_vii;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por conflicto armado en los ultimos 10 anos;% de hogares que han sido afectado por conflicto armado en los ultimos 10 anos;departamento;;categorical;af1;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por desastres naturales en los ultimos 10 anos;% de hogares que han sido afectado por desastres naturales en los ultimos 10 anos;departamento;;categorical;af2;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por conflicto armado por hecho de victimizantes;Confinamiento;departamento;;categorical;af3_i;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por conflicto armado por hecho de victimizantes;Desparicion;departamento;;categorical;af3_ii;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por conflicto armado por hecho de victimizantes;Desplazamiento;departamento;;categorical;af3_iii;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por conflicto armado por hecho de victimizantes;Homicidio;departamento;;categorical;af3_iv;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por conflicto armado por hecho de victimizantes;Integridad sexual;departamento;;categorical;af3_v;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por conflicto armado por hecho de victimizantes;lesiones discapacidad;departamento;;categorical;af3_vi;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por conflicto armado por hecho de victimizantes;masacre;departamento;;categorical;af3_vii;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por conflicto armado por hecho de victimizantes;recrutamiento menores;departamento;;categorical;af3_viii;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por conflicto armado por hecho de victimizantes;secuestro;departamento;;categorical;af3_ix;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por conflicto armado por hecho de victimizantes;tortura;departamento;;categorical;af3_x;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por desastres naturales por hecho de victimizantes;creciente subita;departamento;;categorical;af5_i;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por desastres naturales por hecho de victimizantes;inundaciones;departamento;;categorical;af5_ii;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por desastres naturales por hecho de victimizantes;deslizamientos tierra;departamento;;categorical;af5_iii;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por desastres naturales por hecho de victimizantes;terremotos;departamento;;categorical;af5_iv;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por desastres naturales por hecho de victimizantes;sequias;departamento;;categorical;af5_v;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por desastres naturales por hecho de victimizantes;sismos;departamento;;categorical;af5_vi;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por desastres naturales por hecho de victimizantes;creciente subita;departamento;;categorical;af5_vii;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por desastres naturales por hecho de victimizantes;vendaval;departamento;;categorical;af5_viii;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por desastres naturales por hecho de victimizantes;huracan;departamento;;categorical;af5_ix;numerical;direct_reporting
+afectaciones;% de hogares que han sido afectado por desastres naturales por hecho de victimizantes;tormenta tropical;departamento;;categorical;af5_x;numerical;direct_reporting
+afectaciones;% de hogares que han perdido sus fuentes de ingreso o algun bien por consequencia del conflicto o desastres naturales;;departamento;;categorical;af7;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por sexo del jefe del hogar;Hombre;departamento;;categorical;d1_1;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por sexo del jefe del hogar;Mujer;departamento;;categorical;d1_2;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por sexo del jefe del hogar;Compartido entre hombre y mujer;departamento;;categorical;d1_3;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por sexo del jefe del hogar;Compartida entre mujeres;departamento;;categorical;d1_4;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por sexo del jefe del hogar;Compartida entre hombres;departamento;;categorical;d1_5;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por razon por la que una persona es considerada jefe del hogar;Cultural;departamento;;categorical;d2_i;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por razon por la que una persona es considerada jefe del hogar;aporta la mayor parte de los recursos;departamento;;categorical;d2_ii;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por razon por la que una persona es considerada jefe del hogar;es la persona que toma las decisiones;departamento;;categorical;d2_iii;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por razon por la que una persona es considerada jefe del hogar;no hay nadie mas con quien compartir decisiones o gastos;departamento;;categorical;d2_iv;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por razon por la que una persona es considerada jefe del hogar;toma decisiones y aporta la mayor parte de los recursos;departamento;;categorical;d2_v;numerical;direct_reporting
+caracteristicas_sociodemograficas;Promedio miembros del hogar;Promedio miembros del hogar;departamento;;categorical;d3;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares con al menos un miembro en estado de embarazo;% de hogares con al menos un miembro en estado de embarazo;departamento;;categorical;d4;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares con al menos un miembro mayor de 65 anos;% de hogares con al menos un miembro mayor de 65 anos;departamento;;categorical;d5;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares con al menos un miembro menor de 5 anos;% de hogares con al menos un miembro menor de 5 anos;departamento;;categorical;d6;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por nivel educativo del jefe del hogar;Primaria completa;departamento;;categorical;d7_i;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por nivel educativo del jefe del hogar;Primaria incompleta;departamento;;categorical;d7_ii;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por nivel educativo del jefe del hogar;Secundaria completa;departamento;;categorical;d7_iii;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por nivel educativo del jefe del hogar;Secundaria incompleta;departamento;;categorical;d7_iv;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por nivel educativo del jefe del hogar;Sin educacion;departamento;;categorical;d7_v;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por nivel educativo del jefe del hogar;Tecnico completo;departamento;;categorical;d7_vi;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por nivel educativo del jefe del hogar;Tecnico incompleto;departamento;;categorical;d7_vii;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por nivel educativo del jefe del hogar;Universitario completo;departamento;;categorical;d7_viii;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por nivel educativo del jefe del hogar;Universitario incompleto;departamento;;categorical;d7_ix;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares en los que el jefe del hogar tiene una discapacidad fisica;;departamento;;categorical;d8;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares en los que el jefe del hogar tiene una enfermedad cronica;;departamento;;categorical;d9;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares en los que el jefe del hogar tiene una enfermedad mental;;departamento;;categorical;d10;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por pertenencia etnica del encuestado;Afrodescendiente;departamento;;categorical;d11_i;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por pertenencia etnica del encuestado;Indigena;departamento;;categorical;d11_ii;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por pertenencia etnica del encuestado;Gitano;departamento;;categorical;d11_iii;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por pertenencia etnica del encuestado;Mestizo;departamento;;categorical;d11_iv;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por pertenencia etnica del encuestado;Ninguno;departamento;;categorical;d11_v;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por pertenencia etnica del encuestado;Palenquero;departamento;;categorical;d11_vi;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por pertenencia etnica del encuestado;Raizal;departamento;;categorical;d11_vii;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares en los que el encuestado se identifica como transgenero;% de hogares en los que el encuestado se identifica como transgenero;departamento;;categorical;d12;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares monoparentales;% de hogares monoparentales;departamento;;categorical;d14;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por rangos del tamano del hogar;1;departamento;;categorical;d16_i;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por rangos del tamano del hogar;1_2;departamento;;categorical;d16_ii;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por rangos del tamano del hogar;2_3;departamento;;categorical;d16_iii;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por rangos del tamano del hogar;3_4;departamento;;categorical;d16_iv;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por rangos del tamano del hogar;4_5;departamento;;categorical;d16_v;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares por rangos del tamano del hogar;>5;departamento;;categorical;d16_vi;numerical;direct_reporting
+caracteristicas_sociodemograficas;% de hogares en los que el jefe del hogar NO tiene una discapacidad fisica, enfermedad cronica o enfermedad mental;% de hogares en los que el jefe del hogar NO tiene una discapacidad fisica, enfermedad cronica o enfermedad mental;departamento;;categorical;d17;numerical;direct_reporting
+demografia;% de hogares por tasa de dependencia;0;;;categorical;p4_i;numerical;direct_reporting
+demografia;% de hogares por tasa de dependencia;0_1;;;categorical;p4_ii;numerical;direct_reporting
+demografia;% de hogares por tasa de dependencia;_1;;;categorical;p4_iv;numerical;direct_reporting
+demografia;% de hogares por tasa de dependencia;todos_dependiente;;;categorical;p4_v;numerical;direct_reporting

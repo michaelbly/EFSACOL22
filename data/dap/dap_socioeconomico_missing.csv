@@ -1,0 +1,7 @@
+﻿Indicator Group / Sector;research.question;sub.research.question;repeat.for.variable;independent.variable;independent.variable.type;dependent.variable;dependent.variable.type;hypothesis.type
+situacion_socioeconomica;% de hogares según la fuente principal de los ingresos;Trabajo (cualquier actividad economica que genera ingresos);departamento;;categorical;so2_i;numerical;direct_reporting
+situacion_socioeconomica;% de hogares según la fuente principal de los ingresos;Pension (sistema de proteccion social);departamento;;categorical;so2_ii;numerical;direct_reporting
+situacion_socioeconomica;% de hogares según la fuente principal de los ingresos;Asistencia del gobierno;departamento;;categorical;so2_iii;numerical;direct_reporting
+situacion_socioeconomica;% de hogares según la fuente principal de los ingresos;Asistencia de naciones unidas, ongs, organisaciones caritativas;departamento;;categorical;so2_iv;numerical;direct_reporting
+situacion_socioeconomica;% de hogares según la fuente principal de los ingresos;Remesas de migrantes o ayuda de familiares amigos;departamento;;categorical;so2_v;numerical;direct_reporting
+situacion_socioeconomica;% de hogares según la fuente principal de los ingresos;El hogar no recibe ingresos de ningun tipo;departamento;;categorical;so2_vi;numerical;direct_reporting

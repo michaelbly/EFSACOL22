@@ -1,0 +1,13 @@
+﻿Indicator Group / Sector;research.question;sub.research.question;repeat.for.variable;independent.variable;independent.variable.type;dependent.variable;dependent.variable.type;hypothesis.type
+Demographics;% de hombres;0_4;;;;hombre0_4;numerical;direct_reporting
+Demographics;% de hombres;5_11;;;;hombre5_11;numerical;direct_reporting
+Demographics;% de hombres;12_17;;;;hombre12_17;numerical;direct_reporting
+Demographics;% de hombres;18_30;;;;hombre18_30;numerical;direct_reporting
+Demographics;% de hombres;30_60;;;;hombre30_60;numerical;direct_reporting
+Demographics;% de hombres;60_;;;;hombre60;numerical;direct_reporting
+Demographics;% de mujeres;0_4;;;;mujer0_4;numerical;direct_reporting
+Demographics;% de mujeres;5_11;;;;mujer5_11;numerical;direct_reporting
+Demographics;% de mujeres;12_17;;;;mujer12_17;numerical;direct_reporting
+Demographics;% de mujeres;18_30;;;;mujer18_30;numerical;direct_reporting
+Demographics;% de mujeres;30_60;;;;mujer30_60;numerical;direct_reporting
+Demographics;% de mujeres;60_;;;;mujer60;numerical;direct_reporting

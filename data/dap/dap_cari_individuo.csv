@@ -1,0 +1,5 @@
+﻿Indicator Group / Sector;research.question;sub.research.question;repeat.for.variable;independent.variable;independent.variable.type;dependent.variable;dependent.variable.type;hypothesis.type
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;seguridad_alimentaria;;;categorical;sa8_sa;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;seguridad_alimentaria Marginal;;;categorical;sa8_sam;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;Inseguridad_alimentaria Moderada;;;categorical;sa8_iam;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;Inseguridad_alimentaria Severa;;;categorical;sa8_ias;numerical;direct_reporting

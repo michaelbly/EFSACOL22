@@ -1,0 +1,10 @@
+﻿Indicator Group / Sector;research.question;sub.research.question;repeat.for.variable;independent.variable;independent.variable.type;dependent.variable;dependent.variable.type;hypothesis.type
+situacion_socioeconomica;Proporcion Gastos;Alimentos;one;one;categorical;so22_i;numerical;direct_reporting
+situacion_socioeconomica;Proporcion Gastos;Hogar (agua domestico, renta, electricidad, recoleccion basura, construccion o reparacion, textiles y bienes para el mantenimiento del hogar);one;one;categorical;so22_ii;numerical;direct_reporting
+situacion_socioeconomica;Proporcion Gastos;Esenciales (productos higienicos, salud, vestimenta, educacion);one;one;categorical;so22_iii;numerical;direct_reporting
+situacion_socioeconomica;Proporcion Gastos;Transporte y combustibles (transporte, lena carbon y gas, gasolina);one;one;categorical;so22_iv;numerical;direct_reporting
+situacion_socioeconomica;Proporcion Gastos;Comunicación;one;one;categorical;so22_v;numerical;direct_reporting
+situacion_socioeconomica;Proporcion Gastos;Pago de deudas;one;one;categorical;so22_vi;numerical;direct_reporting
+situacion_socioeconomica;Proporcion Gastos;Seguros;one;one;categorical;so22_vii;numerical;direct_reporting
+situacion_socioeconomica;Proporcion Gastos;Insumos productivos de agricultura;one;one;categorical;so22_viii;numerical;direct_reporting
+situacion_socioeconomica;Proporcion Gastos;Otros gastos 30d;one;one;categorical;so22_ix;numerical;direct_reporting

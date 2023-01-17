@@ -1,0 +1,29 @@
+﻿Indicator Group / Sector;research.question;sub.research.question;repeat.for.variable;independent.variable;independent.variable.type;dependent.variable;dependent.variable.type;hypothesis.type
+seguridad_alimentaria;Promedio de dias de consumo por tipo de alimento;Carne;;;categorical;sa14_i;numerical;direct_reporting
+seguridad_alimentaria;Promedio de dias de consumo por tipo de alimento;Cereales;;;categorical;sa14_ii;numerical;direct_reporting
+seguridad_alimentaria;Promedio de dias de consumo por tipo de alimento;Frutas;;;categorical;sa14_iii;numerical;direct_reporting
+seguridad_alimentaria;Promedio de dias de consumo por tipo de alimento;Huevos;;;categorical;sa14_iv;numerical;direct_reporting
+seguridad_alimentaria;Promedio de dias de consumo por tipo de alimento;Leche;;;categorical;sa14_v;numerical;direct_reporting
+seguridad_alimentaria;Promedio de dias de consumo por tipo de alimento;Leguminosas;;;categorical;sa14_vi;numerical;direct_reporting
+seguridad_alimentaria;Promedio de dias de consumo por tipo de alimento;Pescado;;;categorical;sa14_vii;numerical;direct_reporting
+seguridad_alimentaria;Promedio de dias de consumo por tipo de alimento;Raices;;;categorical;sa14_viii;numerical;direct_reporting
+seguridad_alimentaria;Promedio de dias de consumo por tipo de alimento;Vegetales;;;categorical;sa14_ix;numerical;direct_reporting
+seguridad_alimentaria;Promedio de dias de consumo por tipo de alimento;Condimentos;;;categorical;sa14_x;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia CSI;Comer alimentos menos preferidos;;;categorical;sa15_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia CSI;Comer alimentos a credito;;;categorical;sa15_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia CSI;Reducir las porciones de los adultos;;;categorical;sa15_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia CSI;Reducir numero de comidas;;;categorical;sa15_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por estrategia CSI;Reducir tamano de las porciones;;;categorical;sa15_v;numerical;direct_reporting
+seguridad_alimentaria;% de hogares que no han empleado ninguna estrategia LCS;% de hogares que no han empleado ninguna estrategia LCS;;;categorical;ningun_estrategia;numerical;direct_reporting
+seguridad_alimentaria;cuota media FES;cuota media FES;;;categorical;sa4;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;En arriendo/subarriendo;;;categorical;v17_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;En usufructo;;;categorical;v17_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;Paga diario;;;categorical;v17_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;Otra;;;categorical;v17_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;Posesion sin titulo;;;categorical;v17_v;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;Propia la estan pagando;;;categorical;v17_vi;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por acuerdo de ocupacion;Propia, totalmente pagada;;;categorical;v17_vii;numerical;direct_reporting
+demografia;% de hogares por tasa de dependencia;0;;;categorical;p4_i;numerical;direct_reporting
+demografia;% de hogares por tasa de dependencia;0_1;;;categorical;p4_ii;numerical;direct_reporting
+demografia;% de hogares por tasa de dependencia;_1;;;categorical;p4_iv;numerical;direct_reporting
+demografia;% de hogares por tasa de dependencia;todos_dependiente;;;categorical;p4_v;numerical;direct_reporting

@@ -1,0 +1,20 @@
+﻿Group;Indicator
+Ninuna;ninguna
+Jefe del Hogar;sexo_jefatura
+Jefe del Hogar;estado_civil_sexo_jh
+Jefe del Hogar;nivel_estudios_jh
+Jefe del Hogar;nivel_estudios_sexo
+Jefe del Hogar;discapacidad_jh
+Jefe del Hogar;discapacidad_sexo_jh
+Jefe del Hogar;enfermedad_cronica
+Jefe del Hogar;enfermedad_mental
+Characteristicas Hogar;tamano_hogar
+Characteristicas Hogar;urbano_rural
+Characteristicas Hogar;tipo_de_vivienda
+Situacion Socioeconomica;rangos_ingreso
+Situacion Socioeconomica;recibe_asistencia
+Situacion Socioeconomica;con_deuda
+Situacion Socioeconomica;cambio_ingresos
+Situacion Socioeconomica;ahorrado_dinero_6m
+Afectaciones;afectado_por_desastre_natural
+Afectaciones;afectado_por_conflicto

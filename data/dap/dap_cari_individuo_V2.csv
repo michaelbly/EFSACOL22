@@ -1,0 +1,15 @@
+﻿Indicator Group / Sector;research.question;sub.research.question;repeat.for.variable;independent.variable;independent.variable.type;dependent.variable;dependent.variable.type;hypothesis.type
+Individuos;% de hombres 0-23 meses;% de hombres 0-23 meses;;;categorical;hombre0_23_m;numerical;direct_reporting
+Individuos;% de mujeres 0-23 meses;% de mujeres 0-23 meses;;;categorical;mujer0_23_m;numerical;direct_reporting
+Individuos;% de hombres 24-59 meses;% de hombres 24-59 meses;;;categorical;hombre24_59_m;numerical;direct_reporting
+Individuos;% de mujeres 24-59 meses;% de mujeres 24-59 meses;;;categorical;mujer24_59_m;numerical;direct_reporting
+Individuos;% de hombres 6-11 anos;% de hombres 6-11 anos;;;categorical;hombre6_11;numerical;direct_reporting
+Individuos;% de mujeres 6-11 anos;% de mujeres 6-11 anos;;;categorical;mujer6_11;numerical;direct_reporting
+Individuos;% de hombres 12-17 anos;% de hombres 12-17 anos;;;categorical;hombre12_17;numerical;direct_reporting
+Individuos;% de mujeres 12-17 anos;% de mujeres 12-17 anos;;;categorical;mujer12_17;numerical;direct_reporting
+Individuos;% de hombres 18-29 anos;% de hombres 18-29 anos;;;categorical;hombre18_29;numerical;direct_reporting
+Individuos;% de mujeres 18-29 anos;% de mujeres 18-29 anos;;;categorical;mujer18_29;numerical;direct_reporting
+Individuos;% de hombres 30-59 anos;% de hombres 30-59 anos;;;categorical;hombre30_59;numerical;direct_reporting
+Individuos;% de mujeres 30-59 anos;% de mujeres 30-59 anos;;;categorical;mujer30_59;numerical;direct_reporting
+Individuos;% de hombres> 60 anos;% de hombres> 60 anos;;;categorical;hombre60;numerical;direct_reporting
+Individuos;% de mujeres> 60 anos;% de mujeres> 60 anos;;;categorical;mujer60;numerical;direct_reporting

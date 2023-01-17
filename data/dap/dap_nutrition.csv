@@ -1,0 +1,52 @@
+﻿Indicator Group / Sector;research.question;sub.research.question;repeat.for.variable;independent.variable;independent.variable.type;dependent.variable;dependent.variable.type;hypothesis.type
+Nutricion - Ninos059;Peso para Talla;obesidad;departamento;;;n5;numerical;direct_reporting
+Nutricion - Ninos060;Peso para Talla;sobrepeso;;;;n6;numerical;direct_reporting
+Nutricion - Ninos061;Peso para Talla;riesgo de sobrepeso;;;;n7;numerical;direct_reporting
+Nutricion - Ninos062;Peso para Talla;peso adecuado para la talla;;;;n8;numerical;direct_reporting
+Nutricion - Ninos063;Peso para Talla;riesgo de desnutricion aguda;;;;n9;numerical;direct_reporting
+Nutricion - Ninos064;Peso para Talla;desnutricion aguda moderada;;;;n10;numerical;direct_reporting
+Nutricion - Ninos065;Peso para Talla;desnutricion severa;;;;n11;numerical;direct_reporting
+Nutricion - Ninos066;Peso para Talla;desnutricion severa O aguda;;;;n12;numerical;direct_reporting
+Nutricion - Ninos067;Talla para edad;talla adecuada para la edad;;;;n13;numerical;direct_reporting
+Nutricion - Ninos068;Talla para edad;riesgo de talla baja;;;;n14;numerical;direct_reporting
+Nutricion - Ninos069;Talla para edad;talla baja para la edad;;;;n15;numerical;direct_reporting
+Nutricion - Ninos070;BMI para edad;obesidad;;;;n16;numerical;direct_reporting
+Nutricion - Ninos071;BMI para edad;sobrepeso;;;;n17;numerical;direct_reporting
+Nutricion - Ninos072;BMI para edad;riesgo de sobrepeso;;;;n18;numerical;direct_reporting
+Nutricion - Ninos073;Peso para edad;peso adecuado para la edad;;;;n20;numerical;direct_reporting
+Nutricion - Ninos074;Peso para edad;desnutricion global;;;;n21;numerical;direct_reporting
+Nutricion - Ninos075;Peso para edad;riesgo de desnutricion global;;;;n22;numerical;direct_reporting
+Nutricion - Gestantes;Anemia;anemia leve;;;;n28_i;numerical;direct_reporting
+Nutricion - Gestantes;Anemia;anemia moderada;;;;n28_ii;numerical;direct_reporting
+Nutricion - Gestantes;Anemia;sin anemia;;;;n28_iii;numerical;direct_reporting
+Nutricion - Mayores;Peso para talla;desnutricion severa;;;;n33;numerical;direct_reporting
+Nutricion - Mayores;Peso para talla;desnutricion moderada;;;;n34;numerical;direct_reporting
+Nutricion - Mayores;Peso para talla;desnutricion leve;;;;n35;numerical;direct_reporting
+Nutricion - Mayores;Peso para talla;peso insuficiente;;;;n36;numerical;direct_reporting
+Nutricion - Mayores;Peso para talla;normpeso;;;;n37;numerical;direct_reporting
+Nutricion - Mayores;Peso para talla;sobrepeso;;;;n38;numerical;direct_reporting
+Nutricion - Mayores;Peso para talla;obesidad grado I;;;;n39;numerical;direct_reporting
+Nutricion - Mayores;Peso para talla;obesidad grado II;;;;n40;numerical;direct_reporting
+Nutricion - Mayores;Peso para talla;obesidad grado III;;;;n41;numerical;direct_reporting
+Nutricion - Mayores;Peso para talla;obesidad grado IV;;;;n42;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 0_23;evaluacion nutricional;;;;n43;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 0_23;desparasitacion;;;;n44;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 0_23;micronutrientes;;;;n45;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 0_23;prevencion;;;;n46;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 0_23;tratamiento desnutricion;;;;n47;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 0_23;orientacion;;;;n48;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 24_59;evaluacion nutricional;;;;n49;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 24_59;desparasitacion;;;;n50;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 24_59;micronutrientes;;;;n51;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 24_59;prevencion;;;;n52;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 24_59;tratamiento desnutricion;;;;n53;numerical;direct_reporting
+Nutricion - Intervenciones;Ninos 24_59;orientacion;;;;n54;numerical;direct_reporting
+Nutricion - Suplementos;Gestantes;Acido Folico;;;;n55;numerical;direct_reporting
+Nutricion - Suplementos;Gestantes;Calcio;;;;n56;numerical;direct_reporting
+Nutricion - Suplementos;Gestantes;Hierro;;;;n57;numerical;direct_reporting
+Nutricion - Intervenciones;Gestantes;evaluacion nutricional;;;;n58;numerical;direct_reporting
+Nutricion - Intervenciones;Gestantes;Desparasitacion;;;;n59;numerical;direct_reporting
+Nutricion - Intervenciones;Gestantes;micronutrientes;;;;n60;numerical;direct_reporting
+Nutricion - Intervenciones;Gestantes;prevencion;;;;n61;numerical;direct_reporting
+Nutricion - Intervenciones;Gestantes;orientacion;;;;n62;numerical;direct_reporting
+Nutricion - Leche materna exclusiva;% de ninos (0-6 meses) que han consumido leche materna el ultimo dia, pero ningun otro tipo de alimento;% de ninos (0-6 meses) que han consumido leche materna el ultimo dia, pero ningun otro tipo de alimento;;;;n63;numerical;direct_reporting

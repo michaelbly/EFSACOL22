@@ -1,0 +1,6 @@
+﻿Indicator Group / Sector;research.question;sub.research.question;repeat.for.variable;independent.variable;independent.variable.type;dependent.variable;dependent.variable.type;hypothesis.type
+Ingresos;% de hogares por grupo de ingreso por persona;menos que 100,000;nivel_estudios_grupo;one;categorical;ingreso_pp_menos100;numerical;direct_reporting
+Ingresos;% de hogares por grupo de ingreso por persona;100,000-200,000;nivel_estudios_grupo;one;categorical;ingreso_pp_100_200;numerical;direct_reporting
+Ingresos;% de hogares por grupo de ingreso por persona;200,000-300,000;nivel_estudios_grupo;one;categorical;ingreso_pp_200_300;numerical;direct_reporting
+Ingresos;% de hogares por grupo de ingreso por persona;300,000-400,000;nivel_estudios_grupo;one;categorical;ingreso_pp_300_400;numerical;direct_reporting
+Ingresos;% de hogares por grupo de ingreso por persona;mas que 400,000;nivel_estudios_grupo;one;categorical;ingreso_pp_mas400;numerical;direct_reporting

@@ -1,0 +1,59 @@
+﻿result_column_name;conditions;type;question.name;issue_label;old_value;new_column_name;action_label
+action;"(df$sexo_jh == ""hombre""& df$ind1_parentesco == ""jefe_del_hogar"" &  df$ind1_sexo != ""hombre"") |
+(df$sexo_jh == ""hombre""& df$ind2_parentesco == ""jefe_del_hogar"" &  df$ind2_sexo != ""hombre"") |
+(df$sexo_jh == ""hombre""& df$ind3_parentesco == ""jefe_del_hogar"" &  df$ind3_sexo != ""hombre"") |
+(df$sexo_jh == ""hombre""& df$ind4_parentesco == ""jefe_del_hogar"" &  df$ind4_sexo != ""hombre"") |
+(df$sexo_jh == ""hombre""& df$ind5_parentesco == ""jefe_del_hogar"" &  df$ind5_sexo != ""hombre"") |
+(df$sexo_jh == ""hombre""& df$ind6_parentesco == ""jefe_del_hogar"" &  df$ind6_sexo != ""hombre"") |
+(df$sexo_jh == ""hombre""& df$ind7_parentesco == ""jefe_del_hogar"" &  df$ind7_sexo != ""hombre"") |
+(df$sexo_jh == ""hombre""& df$ind8_parentesco == ""jefe_del_hogar"" &  df$ind8_sexo != ""hombre"") |
+(df$sexo_jh == ""hombre""& df$ind9_parentesco == ""jefe_del_hogar"" &  df$ind9_sexo != ""hombre"") |
+(df$sexo_jh == ""hombre""& df$ind10_parentesco == ""jefe_del_hogar"" &  df$ind10_sexo != ""hombre"")";normal;sexo_jh;el sexo del jefe del hogar es diferente del sexo del jefe del hogar en el loop;df$sexo_jh;df$sexo_jh_checked;Flagged
+action;"(df$sexo_jh == ""mujer""& df$ind1_parentesco == ""jefe_del_hogar"" &  df$ind1_sexo != ""mujer"") |
+(df$sexo_jh == ""mujer""& df$ind2_parentesco == ""jefe_del_hogar"" &  df$ind2_sexo != ""mujer"") |
+(df$sexo_jh == ""mujer""& df$ind3_parentesco == ""jefe_del_hogar"" &  df$ind3_sexo != ""mujer"") |
+(df$sexo_jh == ""mujer""& df$ind4_parentesco == ""jefe_del_hogar"" &  df$ind4_sexo != ""mujer"") |
+(df$sexo_jh == ""mujer""& df$ind5_parentesco == ""jefe_del_hogar"" &  df$ind5_sexo != ""mujer"") |
+(df$sexo_jh == ""mujer""& df$ind6_parentesco == ""jefe_del_hogar"" &  df$ind6_sexo != ""mujer"") |
+(df$sexo_jh == ""mujer""& df$ind7_parentesco == ""jefe_del_hogar"" &  df$ind7_sexo != ""mujer"") |
+(df$sexo_jh == ""mujer""& df$ind8_parentesco == ""jefe_del_hogar"" &  df$ind8_sexo != ""mujer"") |
+(df$sexo_jh == ""mujer""& df$ind9_parentesco == ""jefe_del_hogar"" &  df$ind9_sexo != ""mujer"") |
+(df$sexo_jh == ""mujer""& df$ind10_parentesco == ""jefe_del_hogar"" &  df$ind10_sexo != ""mujer"")";normal;sexo_jh;el sexo del jefe del hogar es diferente del sexo del jefe del hogar en el loop;df$sexo_jh;df$sexo_jh_checked;Flagged
+action;"df$ind1_parentesco != ""jefe_del_hogar"" & df$ind2_parentesco != ""jefe_del_hogar"" & df$ind3_parentesco != ""jefe_del_hogar"" & df$ind4_parentesco != ""jefe_del_hogar"" & df$ind5_parentesco != ""jefe_del_hogar"" & df$ind6_parentesco != ""jefe_del_hogar"" & df$ind7_parentesco != ""jefe_del_hogar"" & df$ind8_parentesco != ""jefe_del_hogar"" & df$ind9_parentesco != ""jefe_del_hogar"" & df$ind10_parentesco != ""jefe_del_hogar"" & df$ind11_parentesco != ""jefe_del_hogar"" & df$ind12_parentesco != ""jefe_del_hogar"" & df$ind13_parentesco != ""jefe_del_hogar""";normal;ind1_parentesco;el jefe del hogar no está incluido en el loop individual;df$ind1_parentesco;df$ind1_parentesco_checked;Flagged
+action;"(df$estado_civil_jh == ""esta_soltero_a_"" & df$ind1_parentesco == ""conyuge_del_jefe_del_hogar"") | 
+(df$estado_civil_jh == ""esta_soltero_a_"" & df$ind2_parentesco == ""conyuge_del_jefe_del_hogar"") | 
+(df$estado_civil_jh == ""esta_soltero_a_"" & df$ind3_parentesco == ""conyuge_del_jefe_del_hogar"") | 
+(df$estado_civil_jh == ""esta_soltero_a_"" & df$ind4_parentesco == ""conyuge_del_jefe_del_hogar"") | 
+(df$estado_civil_jh == ""esta_soltero_a_"" & df$ind5_parentesco == ""conyuge_del_jefe_del_hogar"") | 
+(df$estado_civil_jh == ""esta_soltero_a_"" & df$ind6_parentesco == ""conyuge_del_jefe_del_hogar"") | 
+(df$estado_civil_jh == ""esta_soltero_a_"" & df$ind7_parentesco == ""conyuge_del_jefe_del_hogar"")";normal;estado_civil_jh;El jefe del hogar es soltero (2,4 122), pero una persona del loop es el cónyuge del jefe del hogar (3,6, 78,5);df$estado_civil_jh;df$estado_civil_jh_check;Flagged
+action;"df$fuente_alimentos == ""37_1_produccion_propia"" & gastos_produccion_propia == 0";normal;fuente_alimentos;La principal fuente de alimentos es la producción propia (5,3, 37), pero en los gastos el valor de la producción propia es == 0;df$fuente_alimentos;df$fuente_alimentos_check;Flagged
+action;"(df$estado_civil_jh == ""esta_casado_a_"" & df$ind1_parentesco != ""conyuge_de__1"") & (df$estado_civil_jh == ""esta_casado_a_"" & df$ind2_parentesco != ""conyuge_de__1"") & (df$estado_civil_jh == ""esta_casado_a_"" & df$ind3_parentesco != ""conyuge_de__1"") & (df$estado_civil_jh == ""esta_casado_a_"" & df$ind4_parentesco != ""conyuge_de__1"") & (df$estado_civil_jh == ""esta_casado_a_"" & df$ind5_parentesco != ""conyuge_de__1"") & (df$estado_civil_jh == ""esta_casado_a_"" & df$ind6_parentesco != ""conyuge_de__1"") & (df$estado_civil_jh == ""esta_casado_a_"" & df$ind7_parentesco != ""conyuge_de__1"") & (df$estado_civil_jh == ""esta_casado_a_"" & df$ind8_parentesco != ""conyuge_de__1"") & (df$estado_civil_jh == ""esta_casado_a_"" & df$ind9_parentesco != ""conyuge_de__1"")";normal;estado_civil_jh;El jefe del hogar es casado pero ninguna persona del loop dice que es el cónyuge/la cónyuge del jefe del hogar;df$ind1_parentesco;df$estado_civil_jh_check;Flagged
+action;"df$fuente_alimentos == ""asistencia_alimentaria_por_parte_del_gobierno"" & df$asistencia_gobierno == ""no""";normal;fuente_alimentos;"El informante reporte ""asistencia del gobierno"" como principal fuente de alimentos, pero tambien que no recibe asistencia del gobierno";df$fuente_alimentos;df$fuente_alimentos_check;Flagged
+action;"df$fuente_alimentos == ""ayuda_de_familiares_o_amigos"" & df$asistencia_familia == ""no""";normal;fuente_alimentos;"El informante reporte ""asistencia de la familia"" como principal fuente de alimentos, pero tambien que no recibe asistencia de familias";df$fuente_alimentos;df$fuente_alimentos_check;Flagged
+action;"df$fuente_alimentos == ""produccion_propia__autocultivo_"" & df$gastos_produccion_propia > 0";normal;fuente_alimentos;"El informante reporte ""produccion propia"" como principal fuente de alimentos, pero tambien que no tenia valor de produccion propia en el modulo de gastos";df$fuente_alimentos;df$fuente_alimentos_check;Flagged
+action;"df$fuente_ingresos == ""asistencia_del_gobierno"" & df$asistencia_gobierno == ""no""";normal;fuente_ingresos;"el informante reporte ""asistencia del gobierno"" como principal fuente de ingresos, pero tambien que no recibe asistencia del gobierno";df$fuente_ingresos;df$fuente_ingresos_checked;Flagged
+action;"df$fuente_ingresos == ""remesas_de_migrantes_o_ayuda_de_familiares_amigos"" & df$asistencia_familia == ""no""";normal;fuente_ingresos;"el informante reporte ""asistencia del gobierno"" como principal fuente de ingresos, pero tambien que no recibe asistencia del gobierno";df$fuente_ingresos;df$fuente_ingresos_checked;Flagged
+action;"df$razon_deuda == ""pagar_la_escuela_o_gastos_de_educacion"" & df$gastos_educacion == 0";normal;razon_deuda;el informante dice que gastos de educacion fueron la principal razon para la deuda, pero tambien que tienen 0 gastos en educacion;df$razon_deuda;df$razon_deuda_check;Flagged
+action;"df$gastos_deudas > 0 & df$deuda == ""no""";normal;df$gastos_deuda;el informante dice que no tiene deuda y tambien que tiene gastos en el pago de deudas > 0;df$gastos_deudas;df$gastos_deudas_check;Flagged
+action;(df$gastos_vegetales > 10*sd(df$gastos_vegetales, na.rm = T));normal;gastos_vegetales;Gasto en vegetales es más de 10 veces la desviación estándar mayor que el valor de la mediana;df$gastos_vegetales;df$gastos_vegetales_check;Flagged
+action;(df$gastos_frutas > 10*sd(df$gastos_frutas, na.rm = T));normal;gastos_frutas;Gasto en frutas más de 10 veces la desviación estándar que el valor medio;df$gastos_frutas;df$gastos_frutas_check;Flagged
+action;(df$gastos_carne > 10*sd(df$gastos_carne, na.rm = T));normal;gastos_carne;Gasto en carne más que 10 veces la desviación estándar mayor que el valor mediano;df$gastos_carne;df$gastos_carne_check;Flagged
+action;(df$gastos_pescado > 10*sd(df$gastos_pescado, na.rm = T));normal;gastos_pescado;Gasto en pescado más tan 10 veces la desviación estándar mayor que el valor mediano;df$gastos_pescado;df$gastos_pescado_check;Flagged
+action;(df$gastos_agua_beber > 10*sd(df$gastos_agua_beber, na.rm = T));normal;gastos_agua_beber;Gasto en agua más tan 10 veces la desviación estándar mayor que el valor mediano;df$gastos_agua_beber;df$gastos_agua_beber_check;Flagged
+action;(df$gastos_renta > 10*sd(df$gastos_renta, na.rm = T));normal;gastos_renta;Gasto en renta más tan 10 veces la desviación estándar mayor que el valor mediano;df$gastos_renta;df$gastos_renta_checked;Flagged
+action;(df$gastos_electricidad > 10*sd(df$gastos_electricidad, na.rm = T));normal;gastos_electricidad;Gasto en electricidad más de 10 veces la desviación estándar que el valor medio;df$gastos_electricidad;df$gastos_electricidad_checked;Flagged
+action;(df$gastos_basura > 10*sd(df$gastos_basura, na.rm = T));normal;gastos_basura;Gasto en recogida de basuras más de 10 veces la desviación estándar que el valor medio;df$gastos_basura;df$gastos_basura_checked;Flagged
+action;(df$gastos_transporte > 10*sd(df$gastos_transporte, na.rm = T));normal;gastos_transporte;Gasto en transporte más tan 10 veces la desviación estándar mayor que la mediana;df$gastos_transporte;df$gastos_transporte_checked;Flagged
+action;(df$gastos_higiene > 10*sd(df$gastos_higiene, na.rm = T));normal;gastos_higiene;Gasto en productos de higiene más tan 10 veces la desviación estándar mayor que el valor mediano;df$gastos_higiene;df$gastos_higiene_checked;Flagged
+action;(df$gastos_gasolina > 10*sd(df$gastos_gasolina, na.rm = T));normal;gastos_gasolina;Gasto en gasolina más tan 10 veces la desviación estándar mayor que el valor mediano;df$gastos_gasolina;df$gastos_gasolina_check;Flagged
+action;(df$gastos_medicos > 10*sd(df$gastos_medicos, na.rm = T));normal;gastos_medicos;Gasto en facturas médicas más tan 10 veces la desviación estándar mayor que el valor mediano;df$gastos_medicos;df$gastos_medicos_check;Flagged
+action;(df$gastos_vestimenta > 10*sd(df$gastos_vestimenta, na.rm = T));normal;gastos_vestimenta;Gasto en ropa más tan 10 veces la desviación estándar mayor que el valor mediano;df$gastos_vestimenta;df$gastos_vestimenta_check;Flagged
+action;(df$gastos_educacion > 10*sd(df$gastos_educacion, na.rm = T));normal;gastos_educacion;Gasto en educación más tan 10 veces la desviación estándar mayor que el valor mediano;df$gastos_educacion;df$gastos_educacion_check;Flagged
+action;(df$gastos_deudas > 10*sd(df$gastos_deudas, na.rm = T));normal;gastos_deudas;Gasto en el pago de la deuda más tan 10 veces la desviación estándar mayor que el valor mediano;df$gastos_deudas;df$gastos_deudas_check;Flagged
+action;(df$gastos_construccion > 10*sd(df$gastos_construccion, na.rm = T));normal;gastos_construccion;Gasto en construcción más tan 10 veces la desviación estándar mayor que el valor mediano;df$gastos_construccion;df$gastos_construccion_check;Flagged
+action;(df$gastos_seguros > 10*sd(df$gastos_seguros, na.rm = T));normal;gastos_seguros;Gasto en seguros más de 10 veces la desviación estándar que el valor medio;df$gastos_seguros;df$gastos_seguros_check;Flagged
+action;(df$ingreso > 10*sd(df$ingreso, na.rm = T));normal;ingreso;Ingresos más que 10 veces la desviación estándar mayor que el valor mediano;df$ingreso;df$ingreso_check;Flagged
+action;df$monto_ahorrado == 0;normal;monto_ahorrado;Monto ahorrada = 0;df$monto_ahorrado;df$monto_ahorrado_check;Flagged
+action;df$duracion_min < 35;normal;duracion_min;la entrevista se realizó en menos de 35 minutos;df$duracion_min;df$duracion_min_checked;Flagged
+action;df$duracion_min < 25;normal;duracion_min;la entrevista se realizó en menos de 25 minutos;df$duracion_min;df$duracion_min_checked;Flagged

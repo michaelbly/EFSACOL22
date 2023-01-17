@@ -1,0 +1,17 @@
+﻿Indicator Group / Sector;research.question;sub.research.question;repeat.for.variable;independent.variable;independent.variable.type;dependent.variable;dependent.variable.type;hypothesis.type
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;seguridad_alimentaria;;;categorical;sa8_sa;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;seguridad_alimentaria Marginal;;;categorical;sa8_sam;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;Inseguridad_alimentaria Moderada;;;categorical;sa8_iam;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por situacion de seguridad_alimentaria segun la metodologia del CARI;Inseguridad_alimentaria Severa;;;categorical;sa8_ias;numerical;direct_reporting
+seguridad_alimentaria;% de hogares con {poor, borderline, acceptable} Food Consumption Score;Poor;departamento;;categorical;sa1_poor;numerical;direct_reporting
+seguridad_alimentaria;% de hogares con {poor, borderline, acceptable} Food Consumption Score;Borderline;departamento;;categorical;sa1_borderline;numerical;direct_reporting
+seguridad_alimentaria;% de hogares con {poor, borderline, acceptable} Food Consumption Score;Acceptable;departamento;;categorical;sa1_acceptable;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por Coping Strategies Index Score;fase_1;departamento;;categorical;sa2_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por Coping Strategies Index Score;fase_2;departamento;;categorical;sa2_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por Coping Strategies Index Score;fase_3;departamento;;categorical;sa2_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por puntaje vulnerabilidad economica de CARI;1;departamento;;categorical;sa6_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por puntaje vulnerabilidad economica de CARI;3;departamento;;categorical;sa6_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por puntaje vulnerabilidad economica de CARI;4;departamento;;categorical;sa6_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares que recurren a estrategias de stress/crisis/emergency para hacer frente a la falta de alimentos o de dinero para comprar alimentos;Stress;departamento;;categorical;sa7_stress;numerical;direct_reporting
+seguridad_alimentaria;% de hogares que recurren a estrategias de stress/crisis/emergency para hacer frente a la falta de alimentos o de dinero para comprar alimentos;Crisis;departamento;;categorical;sa7_crisis;numerical;direct_reporting
+seguridad_alimentaria;% de hogares que recurren a estrategias de stress/crisis/emergency para hacer frente a la falta de alimentos o de dinero para comprar alimentos;Emergency;departamento;;categorical;sa7_emergency;numerical;direct_reporting
