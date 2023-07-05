@@ -3,11 +3,11 @@
 loop$edad <- as.numeric(as.character(loop$edad))
 
 loop <- loop %>% mutate(edad_sexo_grupo = case_when(
-  ((loop$edad < 5 & loop$edad_anos_meses == "anos") | (loop$edad_anos_meses == "meses")) & loop$sexo == "hombre" ~ "hombre0_4",
-  ((loop$edad < 5 & loop$edad_anos_meses == "anos") | (loop$edad_anos_meses == "meses")) & loop$sexo == "mujer" ~ "mujer0_4",
+  ((loop$edad <= 5 & loop$edad_anos_meses == "anos") | (loop$edad_anos_meses == "meses")) & loop$sexo == "hombre" ~ "hombre0_5",
+  ((loop$edad <= 5 & loop$edad_anos_meses == "anos") | (loop$edad_anos_meses == "meses")) & loop$sexo == "mujer" ~ "mujer0_5",
   
-  ((loop$edad >= 5 & loop$edad_anos_meses == "anos") & (loop$edad < 12 & loop$edad_anos_meses == "anos")) & loop$sexo == "hombre" ~ "hombre5_11",
-  ((loop$edad >= 5 & loop$edad_anos_meses == "anos") & (loop$edad < 12 & loop$edad_anos_meses == "anos")) & loop$sexo == "mujer" ~ "mujer5_11",
+  ((loop$edad > 5 & loop$edad_anos_meses == "anos") & (loop$edad < 12 & loop$edad_anos_meses == "anos")) & loop$sexo == "hombre" ~ "hombre6_11",
+  ((loop$edad > 5 & loop$edad_anos_meses == "anos") & (loop$edad < 12 & loop$edad_anos_meses == "anos")) & loop$sexo == "mujer" ~ "mujer6_11",
   
   ((loop$edad >= 12 & loop$edad_anos_meses == "anos") & (loop$edad < 18 & loop$edad_anos_meses == "anos")) & loop$sexo == "hombre" ~ "hombre12_17",
   ((loop$edad >= 12 & loop$edad_anos_meses == "anos") & (loop$edad < 18 & loop$edad_anos_meses == "anos")) & loop$sexo == "mujer" ~ "mujer12_17",
@@ -26,11 +26,11 @@ loop <- loop %>% mutate(edad_sexo_grupo = case_when(
 
 
 
-loop$hombre0_4 <- ifelse(loop$edad_sexo_grupo == "hombre0_4",1,0)
-loop$mujer0_4 <- ifelse(loop$edad_sexo_grupo == "mujer0_4",1,0)
+loop$hombre0_5 <- ifelse(loop$edad_sexo_grupo == "hombre0_5",1,0)
+loop$mujer0_5 <- ifelse(loop$edad_sexo_grupo == "mujer0_5",1,0)
 
-loop$hombre5_11 <- ifelse(loop$edad_sexo_grupo == "hombre5_11",1,0)
-loop$mujer5_11 <- ifelse(loop$edad_sexo_grupo == "mujer5_11",1,0)
+loop$hombre6_11 <- ifelse(loop$edad_sexo_grupo == "hombre6_11",1,0)
+loop$mujer6_11 <- ifelse(loop$edad_sexo_grupo == "mujer6_11",1,0)
 
 loop$hombre12_17 <- ifelse(loop$edad_sexo_grupo == "hombre12_17",1,0)
 loop$mujer12_17 <- ifelse(loop$edad_sexo_grupo == "mujer12_17",1,0)
@@ -47,8 +47,8 @@ loop$mujer60 <- ifelse(loop$edad_sexo_grupo == "mujer60",1,0)
 
 
 
-loop <- df %>%
-  select(registro, weights) %>%
+loop <- response_with_composites %>%
+  select(registro, weights, departamento) %>%
   left_join(loop, by = "registro")
 
 

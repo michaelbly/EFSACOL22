@@ -43,6 +43,7 @@ conflict_prefer("select", "dplyr")
 conflict_prefer("mutate", "dplyr")
 conflict_prefer("rename", "dplyr")
 conflict_prefer("summarise", "dplyr")
+conflict_prefer("arrange", "dplyr")
 
 
 
@@ -84,6 +85,8 @@ adm <- ms_simplify(adm)
 object_size(adm)
 # < 1MB
 df$registro <- as.factor(as.numeric(df$registro))
+incoherences_registro$registro <- as.factor(as.numeric(incoherences_registro$registro))
+
 
 #merge inconsistencies dataset with df
 df <- df %>% left_join(incoherences_registro, by = "registro")
@@ -261,6 +264,7 @@ gauge_chart <- highchart() %>%
 df <- expenditure_cleaner_30d(df)
 df <- expenditure_cleaner_6m(df)
 
+loop <- loop_generator(df)
 
 cari <- recoding_cari(df) %>%
   select(departamento, cari_category) %>%
@@ -270,9 +274,6 @@ cari <- recoding_cari(df) %>%
   group_by(departamento) %>%
   mutate(Percentage=round(Percentage/sum(Percentage)*100),0)
 cari$n <- 1
-
-
-loop <- loop_generator(df)
 
 
 df <- recoding_cari(df)

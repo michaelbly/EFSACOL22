@@ -137,6 +137,7 @@ df <- df_n %>% select(registro, count_nutrition) %>%
                   right_join(df, by = "registro")
 
 
+df <- unique(df)
 
 
 #import categories classification for analysis disaggregations

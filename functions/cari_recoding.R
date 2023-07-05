@@ -1,17 +1,73 @@
 recoding_cari <- function(r) {
   
   r <- df
-  # create variable with regions
+  
+  
+  r <- r %>% dplyr::mutate(afectacion = case_when(
+    r$afectado_conflicto == "si" & r$afectado_desastre_natural == "no" ~ "afectado_conflicto",
+    r$afectado_desastre_natural == "si" & r$afectado_conflicto == "no" ~ "afectado_desastre_natural",
+    r$afectado_desastre_natural == "no" & r$afectado_conflicto == "no"  ~ "ningun_afectacion",
+    r$afectado_desastre_natural == "si" & r$afectado_conflicto == "si"  ~ "doble_afectacion",
+    
+    TRUE ~ "otro"
+  ))
+  
+  
+  r <- r %>% dplyr::mutate(desplazado = case_when(
+    r$afectado_conflicto_desplazamiento == "si"  ~ "desplazado",
+    r$afectado_conflicto_desplazamiento %in% c("no", "_", "prefiere_no_responder_strong___no_leer___strong_")  ~ "no_desplazado",
+    TRUE ~ "otro"
+  ))
+  
+  
+  # create variable with regiones naturales
   r <- r %>% dplyr::mutate(regiones_naturales = case_when(
-    r$departamento %in% c("antioquia", "bogota_dc", "boyaca", "caldas", "cundinamarca", "huila", "quindio", "risaralda", "santander", "tolima", "norte_de_santander") ~ "andina",
+    r$departamento %in% c("antioquia", "bogota_dc", "boyaca", "caldas", "cundinamarca", "huila", 
+                          "quindio", "risaralda", "santander", "tolima", "norte_de_santander") ~ "andina",
+    
     r$departamento %in% c("vichada", "vaupes", "amazonas", "caqueta", "putumayo") ~ "amazonia",
+    
     r$departamento %in% c("atlantico", "bolivar", "cesar", "cordoba", "la_guajira", "magdalena", "sucre") ~ "caribe",
+    
     r$departamento %in% c("archipielago_de_san_andres") ~ "insular",
+    
     r$departamento %in% c("arauca", "casanare", "meta") ~ "orinoquia",
+    
     r$departamento %in% c("cauca", "choco", "valle_del_cauca", "narino") ~ "pacifica"
   ))
   
   
+  # create variable which indicates capitales
+  r <- r %>% dplyr::mutate(capitales = case_when(
+    r$municipio %in% c("leticia", "medellin", "arauca", "barranquilla", "bogota__d_c_", "cartagena_de_indias", 
+                          "tunja", "manizales", "florencia", "yopal", "popayan", "valledupar", "quibdo", "monteria", 
+                       "neiva", "riohacha", "santa_marta", "villavicencio", "pasto", "cucuta", "mocoa", "armenia", 
+                       "pereira", "san_andres", "bucaramanga", "sincelejo", "ibague", "cali") ~ "capital",
+    
+    !(r$municipio %in% c("leticia", "medellin", "arauca", "barranquilla", "bogota__d_c_", "cartagena_de_indias", 
+                       "tunja", "manizales", "florencia", "yopal", "popayan", "valledupar", "quibdo", "monteria", 
+                       "neiva", "riohacha", "santa_marta", "villavicencio", "pasto", "cucuta", "mocoa", "armenia", 
+                       "pereira", "san_andres", "bucaramanga", "sincelejo", "ibague", "cali")) ~ "no_capital"
+  ))
+  
+  
+  
+  # create variable with sampling regions
+  r <- r %>% dplyr::mutate(regiones_sampling = case_when(
+    r$departamento %in% c("antioquia", "caldas", "quindio", "risaralda") ~ "antioquia_ec",
+    
+    r$departamento %in% c("archipielago_de_san_andres", "atlantico", "bolivar", "cesar", "cordoba", "la_guajira", 
+                          "magdalena", "sucre") ~ "caribe",
+    
+    r$departamento %in% c("cundinamarca", "huila", "tolima", "bogota_dc") ~ "centro",
+    
+    r$departamento %in% c("boyaca", "santander","norte_de_santander") ~ "oriente",
+    
+    r$departamento %in% c("cauca", "choco", "valle_del_cauca", "narino") ~ "pacifica",
+    
+    r$departamento %in% c("atn", "vichada", "vaupes", "amazonas", "caqueta", "putumayo", "casanare", 
+                          "meta", "arauca") ~ "sur"
+  ))
   
   
   
@@ -50,6 +106,8 @@ recoding_cari <- function(r) {
     ingreso_pp >= 800000 & ingreso_pp < 1000000 ~ "800_1000", 
     ingreso_pp >= 1000000 ~ "mas_1000"))
   
+
+  r$count <- 1
   
   
   r$ingreso_pp_menos50 <- ifelse(r$rangos_ingreso == "menos_50",1,0)
@@ -84,11 +142,19 @@ recoding_cari <- function(r) {
     valor_deuda >= 20000000 ~ "mas_20000"))
   
   
-  # households having received assistance from UN, government or PMA
+  r$rango_deuda_i <- ifelse(r$rangos_deuda == "ningun_deuda",1,0)
+  r$rango_deuda_ii <- ifelse(r$rangos_deuda %in% c("menos_500", "500_1000", "1000_2000"),1,0)
+  r$rango_deuda_iii <- ifelse(r$rangos_deuda %in% c("2000_3000", "3000_4000"),1,0)
+  r$rango_deuda_iv <- ifelse(r$rangos_deuda %in% c("4000_7000", "7000_10000"),1,0)
+  r$rango_deuda_v <- ifelse(r$rangos_deuda %in% c("10000_20000", "mas_20000"),1,0)
+  
+  
+  # households having received assistance from UN, government, PMA or friends
   r <- r %>% dplyr::mutate(recibe_asistencia = case_when(
     r$asistencia_gobierno == "si" | r$asistencia_organizacion == "si" |
-      r$asistencia_PMA == "si" ~ "recibe_asistencia", 
+      r$asistencia_PMA == "si" | r$asistencia_familia == "si" ~ "recibe_asistencia", 
     TRUE ~ "no_recibe_asistencia"))
+  
   
   
   
@@ -175,14 +241,14 @@ recoding_cari <- function(r) {
   ))
   
   r <- r %>% dplyr::mutate(afectado_por_desastre_natural = case_when(
-    r$afectado_desastre_natural == "si"  ~ "afectado",
-    r$afectado_desastre_natural == "no"  ~ "no_afectado",
+    r$afectado_desastre_natural == "si"  ~ "afectado_por_desastres_naturales",
+    r$afectado_desastre_natural == "no"  ~ "no_afectado_por_desastres_naturales",
     TRUE ~ "otro"
   ))
   
   r <- r %>% dplyr::mutate(afectado_por_conflicto = case_when(
-    r$afectado_conflicto == "si"  ~ "afectado",
-    r$afectado_conflicto == "no"  ~ "no_afectado",
+    r$afectado_conflicto == "si"  ~ "afectado_por_conflicto",
+    r$afectado_conflicto == "no"  ~ "no_afectado_por_conflicto",
     TRUE ~ "otro"
   ))
   
@@ -281,6 +347,25 @@ r$sa4 <- r$exp_food / r$exp_total
 
 
 
+r <- r %>% dplyr::mutate(fes_rangos = case_when(
+  r$sa4 < 0.3 ~ "_0.3",
+  r$sa4 >= 0.3 & r$sa4 < 0.4 ~ "0.3_0.4",
+  r$sa4 >= 0.4 & r$sa4 < 0.5 ~ "0.4_0.5",
+  r$sa4 >= 0.5 & r$sa4 < 0.6 ~ "0.5_0.6",
+  r$sa4 >= 0.6 & r$sa4 < 0.7 ~ "0.6_0.7",
+  r$sa4 >= 0.7 ~ "0.7_"))
+
+
+r$fes_rang_i <- ifelse(r$fes_rangos == "_0.3", 1,0)
+r$fes_rang_ii <- ifelse(r$fes_rangos == "0.3_0.4", 1,0)
+r$fes_rang_iii <- ifelse(r$fes_rangos == "0.4_0.5", 1,0)
+r$fes_rang_iv <- ifelse(r$fes_rangos == "0.5_0.6", 1,0)
+r$fes_rang_v <- ifelse(r$fes_rangos == "0.6_0.7", 1,0)
+r$fes_rang_vi <- ifelse(r$fes_rangos == "0.7_", 1,0)
+
+
+
+
 r <- r %>% dplyr::mutate(fes_cari_alternative = case_when(
   r$sa4 < 0.5 ~ 1,
   r$sa4 >= 0.5 & r$sa4 < 0.65 ~ 2,
@@ -330,6 +415,31 @@ r <- r %>% dplyr::mutate(so5 = case_when(
   TRUE ~ 0
 ))
 
+
+# % de hogares por rangos de pobreza
+r <- r %>% dplyr::mutate(rangos_pobreza = case_when(
+  r$exp_pp > 396182 & r$urbano_rural == "urbano" ~ "ariba_pobreza",
+  r$exp_pp > 228725 & r$urbano_rural == "rural" ~ "ariba_pobreza",
+  
+  r$exp_pp < 396182 & r$exp_pp > 178906 & r$urbano_rural == "urbano" ~ "entre_pobre_extrema",
+  r$exp_pp < 228725 & r$exp_pp > 125291 & r$urbano_rural == "rural" ~ "entre_pobre_extrema",
+  
+  r$exp_pp < 178906 & r$urbano_rural == "urbano" ~ "extrema",
+  r$exp_pp < 125291 & r$urbano_rural == "rural" ~ "extrema"))
+
+
+r <- r %>% dplyr::mutate(tipo_empleo_grupos = case_when(
+  r$miembro_mayor_recursos_empleo %in% c("empleado_a__domestico_a_", "jornalero_o_peon", "trabajador_por_cuenta_propia") ~ "domest_jornal_cuenta",
+  
+  r$miembro_mayor_recursos_empleo %in% c("obrero_a__o_empleado_a__de_empresa_particular", "obrero_a__o_empleado_a__del_gobierno") ~ "empleado", 
+  
+  TRUE ~ "otro"
+  
+  ))
+
+
+
+
 r$sa6_i <- ifelse(r$sa6 == 1, 1,0)
 r$sa6_iii <- ifelse(r$sa6 == 3, 1,0)
 r$sa6_iv <- ifelse(r$sa6 == 4, 1,0)
@@ -362,6 +472,9 @@ r$sa7_x <- ifelse(r$lcs_vender_activos_no =="3__no__porque_ya_habia_vendido_esos
 
 r$ningun_estrategia <- ifelse(r$sa7_i == 0 & r$sa7_ii == 0 & r$sa7_iii == 0 & r$sa7_iv == 0 & r$sa7_v == 0 &
                                 r$sa7_vi == 0 & r$sa7_vii == 0 & r$sa7_viii == 0 & r$sa7_ix == 0 &
+                                r$sa7_x == 0, 1,0)
+
+r$sa7_vender <- ifelse(r$sa7_ii == 0 &
                                 r$sa7_x == 0, 1,0)
 
 
@@ -434,11 +547,14 @@ r$sa8_sam <- ifelse(r$cari >= 1.5 & r$cari < 2.5,1,0)
 r$sa8_iam <- ifelse(r$cari >= 2.5 & r$cari < 3.5,1,0)
 r$sa8_ias <- ifelse(r$cari >= 3.5,1,0)
 
+r$inseg_alimentaria_bin <- ifelse(r$sa8_iam == 1 | r$sa8_ias == 1,1,0)
+
+
 r <- r %>% dplyr::mutate(cari_category = case_when(
-  r$sa8_sa == 1 ~ "Seguridad",
-  r$sa8_sam == 1 ~ "Seguridad Marginal",
-  r$sa8_iam == 1 ~ "Inseguridad Moderada",
-  r$sa8_ias == 1 ~ "Inseguridad Severa"
+  r$sa8_sa == 1 ~ "1_Seguridad",
+  r$sa8_sam == 1 ~ "2_Seguridad Marginal",
+  r$sa8_iam == 1 ~ "3_Inseguridad Moderada",
+  r$sa8_ias == 1 ~ "4_Inseguridad Severa"
 ))
 
 r <- r %>% dplyr::mutate(cari_insecurity = case_when(
@@ -457,12 +573,17 @@ r$sa9_ii <- ifelse(r$nr_comidas_7d == "2_comidas",1,0)
 r$sa9_iii <- ifelse(r$nr_comidas_7d == "1_comida",1,0)
 r$sa9_iv <- ifelse(r$nr_comidas_7d == "ninguna",1,0)
 
+r$sa9_v <- ifelse(r$nr_comidas_7d %in% c("ninguna", "1_comida", "2_comidas"),1,0)
+
+
 
 # % de hogares que han comido menos de 3 veces el dia anterior de la recogida de datos
 r$sa10_i <- ifelse(r$nr_comidas_ayer == "3_comidas_o_mas",1,0)
 r$sa10_ii <- ifelse(r$nr_comidas_ayer == "2_comidas",1,0)
 r$sa10_iii <- ifelse(r$nr_comidas_ayer == "1_comida",1,0)
 r$sa10_iv <- ifelse(r$nr_comidas_ayer == "ninguna",1,0)
+
+r$sa10_v <- ifelse(r$nr_comidas_ayer %in% c("ninguna", "1_comida", "2_comidas"),1,0)
 
 
 # % de hogares por FCS-N
@@ -503,6 +624,18 @@ r <- r %>%
          sa_15_cat4 = ifelse(sum_hdds > 5,1,0))
 
 
+r <- r %>%
+  rowwise() %>%
+  dplyr::mutate_at(vars(ends_with("_ayer") & starts_with("fcs_")), bin_fcs) %>%
+  dplyr::mutate(sum_hdds_ipc = sum(c(fcs_cereales_ayer, fcs_raices_ayer, fcs_vegetales_ayer, 
+                                 fcs_frutas_ayer, fcs_carne_ayer,
+                                 fcs_leguminosas_ayer, fcs_leche_ayer, fcs_grasas_ayer, fcs_azucares_ayer,
+                                 fcs_condimentos_ayer), na.rm = T)) %>%
+  dplyr::mutate(sa_15_ipc_cat1 = ifelse(sum_hdds_ipc <= 2,1,0),
+                sa_15_ipc_cat2 = ifelse(sum_hdds_ipc > 2 & sum_hdds_ipc <= 4,1,0),
+                sa_15_ipc_cat3 = ifelse(sum_hdds_ipc > 4,1,0))
+
+
 # % de hogares que han empleado al menos una estrategia CSI en los ultimos 7 dias
 r$sa11 <- ifelse(r$csi_alimentos_menos_preferidos > 0 | r$csi_pedir_prestados_alimentos > 0 | 
                    r$csi_reducir_adultos > 0 | r$csi_reducir_numero_comidas > 0 | r$csi_reducir_tamano_porciones > 0,1,0)
@@ -528,6 +661,16 @@ r$sa14_vii <- r$fcs_pescado
 r$sa14_viii <- r$fcs_raices
 r$sa14_ix <- r$fcs_vegetales
 r$sa14_x <- r$fcs_condimentos
+r$sa14_xi <- r$fcs_carne_frescas
+r$sa14_xii <- r$fcs_cereales_subgrupo
+r$sa14_xiii <- r$fcs_raices
+r$sa14_xiv <- r$fcs_visceras_rojo
+r$sa14_xv <- r$fcs_pescado
+r$sa14_xvi <- r$fcs_huevos
+r$sa14_xvii <- r$fcs_vegetales_anaranjados
+r$sa14_xviii <- r$fcs_vegetales_verdes
+r$sa14_xix <- r$fcs_azucares
+r$sa14_xx <- r$fcs_grasas
 
 
 #% de hogares por CSI estrategia
@@ -537,6 +680,18 @@ r$sa15_iii <- ifelse(r$csi_reducir_adultos > 0,1,0)
 r$sa15_iv <- ifelse(r$csi_reducir_numero_comidas > 0,1,0)
 r$sa15_v <- ifelse(r$csi_reducir_tamano_porciones > 0,1,0)
 
+
+
+# % de hogares por fuente de alimentos
+r$sa16_i <- ifelse(r$fuente_alimentos == "asistencia_alimentaria_por_parte_de_ongs__cooperacion_internacional_o_iglesias",1,0)
+r$sa16_ii <- ifelse(r$fuente_alimentos == "asistencia_alimentaria_por_parte_del_gobierno",1,0)
+r$sa16_iii <- ifelse(r$fuente_alimentos == "auto_suministro__duenos_de_tiendas_",1,0)
+r$sa16_iv <- ifelse(r$fuente_alimentos == "ayuda_de_familiares_o_amigos",1,0)
+r$sa16_v <- ifelse(r$fuente_alimentos == "intercambio_de_mano_de_obra_o_articulos_por_alimentos",1,0)
+r$sa16_vi <- ifelse(r$fuente_alimentos == "mercado__compra_al_contado_",1,0)
+r$sa16_vii <- ifelse(r$fuente_alimentos == "prestamo",1,0)
+r$sa16_viii <- ifelse(r$fuente_alimentos == "produccion_propia__autocultivo_",1,0)
+r$sa16_ix <- ifelse(r$fuente_alimentos == "mercado__compra_al_credito",1,0)
 
 
 ###############################################################
@@ -566,7 +721,7 @@ r$so7 <- as.numeric(r$valor_deuda)
 
 # % de hogares por motivo de su deuda
 r <- r %>%
-  mutate(razon_deuda = na_if(razon_deuda, "_"))
+  mutate(razon_deuda = replace_na(razon_deuda, "_"))
 r$so8_i <- ifelse(r$razon_deuda == "comprar_comida",1,0)
 r$so8_ii <- ifelse(r$razon_deuda == "comprar_insumos_productivos",1,0)
 r$so8_iii <- ifelse(r$razon_deuda == "comprar_ropa__zapatos",1,0)
@@ -581,7 +736,7 @@ r$so8_ix <- ifelse(r$razon_deuda == "compra_de_activos__casa__apartamento__carro
 
 # % de hogares que declaran haber disminuido sus ingresos en los ultimos 12 meses
 r <- r %>%
-  mutate(cambio_ingresos = na_if(cambio_ingresos, "_"))
+  mutate(cambio_ingresos = replace_na(cambio_ingresos, "_"))
 r$so9_i <- ifelse(r$cambio_ingresos == "aumentaron_los_ingresos",1,0)
 r$so9_ii <- ifelse(r$cambio_ingresos == "disminuyeron_los_ingresos",1,0)
 r$so9_iii <- ifelse(r$cambio_ingresos == "no_hubo_cambios",1,0)
@@ -590,7 +745,7 @@ r$so9_iv <- ifelse(r$cambio_ingresos == "se_perdieron_los_ingresos_por_completo"
 
 # % de hogares por razon principal por la que disminuyeron o perdieron sus ingresos
 r <- r %>%
-  mutate(razon_cambio_ingresos = na_if(razon_cambio_ingresos, "_"))
+  mutate(razon_cambio_ingresos = replace_na(razon_cambio_ingresos, "_"))
 r$so10_i <- ifelse(r$razon_cambio_ingresos == "algun_miembro_del_hogar_murio",1,0)
 r$so10_ii <- ifelse(r$razon_cambio_ingresos == "algun_miembro_del_hogar_perdio_su_empleo_o_redujo_las_horas_de_trabajo",1,0)
 r$so10_iii <- ifelse(r$razon_cambio_ingresos == "algun_miembro_del_hogar_se_enfermo_o_esta_incapacitado",1,0)
@@ -618,6 +773,44 @@ r$so14_i <- as.numeric(r$gastos_higiene) / as.numeric(r$exp_total)
 # cuota media del gasto en transporte (en % del gasto total)
 r$so14_ii <- as.numeric(r$gastos_transporte) / as.numeric(r$exp_total)
 
+# cuota media del gasto en agua de uso domestico
+r$so14_iii <- as.numeric(r$gastos_agua_domestico) / as.numeric(r$exp_total)
+
+# cuota media del gasto en electricidad
+r$so14_iv <- as.numeric(r$gastos_electricidad) / as.numeric(r$exp_total)
+
+# cuota media del gasto en recoleccion de basura
+r$so14_v <- as.numeric(r$gastos_basura) / as.numeric(r$exp_total)
+
+# cuota media del gasto en comunicacion
+r$so14_vi <- as.numeric(r$gastos_comunicacion) / as.numeric(r$exp_total)
+
+# cuota media del gasto en lena, carbon, gas, kerosena
+r$so14_vii <- as.numeric(r$gastos_lena) / as.numeric(r$exp_total)
+
+# cuota media del gasto en gasolina
+r$so14_viii <- as.numeric(r$gastos_gasolina) / as.numeric(r$exp_total)
+
+# cuota media de los otros gastos
+r$so14_ix <- as.numeric(r$gastos_otros) / as.numeric(r$exp_total)
+
+# cuota media del gasto en vestimenta
+r$so14_x <- as.numeric(r$gastos_vestimenta / 6) / as.numeric(r$exp_total)
+
+# cuota media del gasto en insumos productivos
+r$so14_xi <- as.numeric(r$gastos_insumos / 6) / as.numeric(r$exp_total)
+
+# cuota media del gasto en construccion o reparacion de casas
+r$so14_xii <- as.numeric(r$gastos_construccion / 6) / as.numeric(r$exp_total)
+
+# cuota media del gasto en seguros
+r$so14_xiii <- as.numeric(r$gastos_seguros / 6) / as.numeric(r$exp_total)
+
+# cuota media del gasto en textiles
+r$so14_ix <- as.numeric(r$gastos_textiles / 6) / as.numeric(r$exp_total)
+
+
+
 
 # % de hogares que declaran haber ahorrado dinero en los ultimos 6 meses
 r$so15 <- ifelse(r$ahorrado_dinero == "si",1,0)
@@ -637,7 +830,7 @@ r$so19_iv <- ifelse(r$ingreso_pp >= 300000,1,0)
 
 # % de hogares por tipo de empleo de la persona que aporta la mayor parte de recursos en el hogar
 r <- r %>%
-  mutate(miembro_mayor_recursos_empleo = na_if(miembro_mayor_recursos_empleo, "_"))
+  mutate(miembro_mayor_recursos_empleo = replace_na(miembro_mayor_recursos_empleo, "_"))
 r$so20_i <- ifelse(r$miembro_mayor_recursos_empleo == "empleado_a__domestico_a_",1,0)
 r$so20_ii <- ifelse(r$miembro_mayor_recursos_empleo == "jornalero_o_peon",1,0)
 r$so20_iii <- ifelse(r$miembro_mayor_recursos_empleo == "obrero_a__o_empleado_a__de_empresa_particular",1,0)
@@ -650,7 +843,7 @@ r$so20_viii <- ifelse(r$miembro_mayor_recursos_empleo == "trabajador_sin_remuner
 
 # % de hogares por actividad a que se dedica principalmente la empresa o negocio en la que trabaja la persona que aporta la mayor parte de recursos
 r <- r %>%
-  mutate(miembro_mayor_recursos_actividad_empresa = na_if(miembro_mayor_recursos_actividad_empresa, "_"))
+  mutate(miembro_mayor_recursos_actividad_empresa = replace_na(miembro_mayor_recursos_actividad_empresa, "_"))
 r$so21_i <- ifelse(r$miembro_mayor_recursos_actividad_empresa == "actividades_financieras_y_de_seguros__actividades_inmobiliarias__empresariales_y_de_alquiler",1,0)
 r$so21_ii <- ifelse(r$miembro_mayor_recursos_actividad_empresa == "administracion_publica__gobierno___defensa__seguridad_social__educacion__servicios_sociales_y_de_salud_",1,0)
 r$so21_iii <- ifelse(r$miembro_mayor_recursos_actividad_empresa == "agricultura__ganaderia__caza__silvicultura_y_pesca_",1,0)
@@ -703,6 +896,19 @@ r$so22_viii <- as.numeric(r$gastos_insumos / 6) / as.numeric(r$exp_total)
 r$so22_ix <- as.numeric(r$gastos_otros) / as.numeric(r$exp_total)
 
 
+# % de hogares por tipo/fuente de la deuda
+r$so23_i <- ifelse(r$fuente_credito == "banco__distinto_a_tarjeta_de_credito_",1,0)
+r$so23_ii <- ifelse(r$fuente_credito == "caja_de_compensacion__fondo_de_empleados",1,0)
+r$so23_iii <- ifelse(r$fuente_credito == "cooperativa",1,0)
+r$so23_iv <- ifelse(r$fuente_credito == "credito_de_almacen",1,0)
+r$so23_v <- ifelse(r$fuente_credito == "empresa_de_servicios_publicos",1,0)
+r$so23_vi <- ifelse(r$fuente_credito == "familia_amigos_vecinos",1,0)
+r$so23_vii <- ifelse(r$fuente_credito == "fiador__tendero",1,0)
+r$so23_viii <- ifelse(r$fuente_credito == "prestamista__gota_a_gota_",1,0)
+r$so23_ix <- ifelse(r$fuente_credito == "propietario_de_vivienda__retraso_en_el_alquiler_",1,0)
+r$so23_x <- ifelse(r$fuente_credito == "tarjeta_de_credito",1,0)
+
+
 
 
 ###############################################################
@@ -716,6 +922,15 @@ r$ah1 <- ifelse(r$asistencia_organizacion == "si",1,0)
 r$ah2 <- ifelse(r$asistencia_gobierno == "si",1,0)
 
 
+r$ah2_i <- ifelse(grepl("productos_no_alimenticos", r$asistencia_gobierno_tipo),1,0)
+r$ah2_ii <- ifelse(grepl("dinero", r$asistencia_gobierno_tipo),1,0)
+r$ah2_iii <- ifelse(grepl("educacion", r$asistencia_gobierno_tipo),1,0)
+r$ah2_iv <- ifelse(grepl("programa_social_de_apoyo", r$asistencia_gobierno_tipo),1,0)
+r$ah2_v <- ifelse(grepl("canasta", r$asistencia_gobierno_tipo),1,0)
+r$ah2_vi <- ifelse(grepl("alimentos_en_especie", r$asistencia_gobierno_tipo),1,0)
+r$ah2_vii <- ifelse(grepl("beneficios_de_salud", r$asistencia_gobierno_tipo),1,0)
+
+
 # % de hogares que declaran haber recibido ayuda del Programa Mundial de Alimentos en los ultimos 6 meses
 r$ah3 <- ifelse(r$asistencia_PMA == "si",1,0)
 
@@ -723,14 +938,20 @@ r$ah3 <- ifelse(r$asistencia_PMA == "si",1,0)
 # % de hogares que declaran haber recibido ayuda de su comunidad, familia o amigos para cubrir el costo de alimentos u otras necesidades en los ultimos 6 meses
 r$ah4 <- ifelse(r$asistencia_familia == "si",1,0)
 
+# % de hogares que han recibido asistencia de cualquier lugar (gobierno, familia, PMA, onu)
+r$ah5 <- ifelse(r$ah1 == 1 | r$ah2 == 1 | r$ah3 == 1 | r$ah4 == 1,1,0)
+
 
 # % de hogares que declaran haber recibido ayuda de su comunidad, familia o amigos para cubrir el costo de alimentos u otras necesidades en los ultimos 6 meses por tipo de familiares que han prestado la asistencia
+r$asistencia_familia_quien <- ifelse(r$asistencia_familia_quien == "_", NA_real_,
+                                     r$asistencia_familia_quien)
 r$ah4_i <- ifelse(r$asistencia_familia_quien == "amigos",1,0)
 r$ah4_ii <- ifelse(r$asistencia_familia_quien == "familiares_que_viven_en_colombia",1,0)
 r$ah4_iii <- ifelse(r$asistencia_familia_quien == "familiares_que_viven_fuera_de_colombia",1,0)
 r$ah4_iv <- ifelse(r$asistencia_familia_quien == "iglesia",1,0)
 r$ah4_v <- ifelse(r$asistencia_familia_quien == "miembros_de_la_comunidad",1,0)
-
+r$ah4_vi <- ifelse(r$asistencia_familia_quien == "vecinos",1,0)
+r$ah4_vii <- ifelse(r$asistencia_familia_quien == "otro",1,0)
 
 
 
@@ -739,7 +960,7 @@ r$ah4_v <- ifelse(r$asistencia_familia_quien == "miembros_de_la_comunidad",1,0)
 ###############################################################
 # % de hogares por tipo de vivienda
 r <- r %>%
-  mutate(tipo_vivienda = na_if(tipo_vivienda, "_"))
+  mutate(tipo_vivienda = replace_na(tipo_vivienda, "_"))
 r$v1_i <- ifelse(r$tipo_vivienda == "apartamento_apartaestudio",1,0)
 r$v1_ii <- ifelse(r$tipo_vivienda == "casa",1,0)
 r$v1_iii <- ifelse(r$tipo_vivienda == "habitacion_cuarto_pieza_en_otro_tipo_de_estructura__parqueaderos__depositos__bodegas__iglesias__colegios__fabricas__cuarto_para_portero_o_celador_en_un_edificio_de_apartamentos_",1,0)
@@ -747,6 +968,9 @@ r$v1_iv <- ifelse(r$tipo_vivienda == "habitacion_cuarto_pieza_en_un_inquilinato"
 r$v1_v <- ifelse(r$tipo_vivienda == "situacion_de_calle_con_espacio_para_alojarse__carpa__vagon__embarcacion__cueva__refugio_natural__etc__",1,0)
 r$v1_vi <- ifelse(r$tipo_vivienda == "otro_",1,0)
 r$v1_vii <- ifelse(r$tipo_vivienda == "vivienda_improvisada__construcciones_informales_con_materiales_menos_durables__cambuches__etc__",1,0)
+
+
+
 
 
 
@@ -769,16 +993,31 @@ r$v4 <- ifelse(r$nr_cuartos_duermen == 1 & r$nr_personas_hogar != 0, 1,0)
 # % de hogares en los que hay mas de 2 personas por habitacion
 r$personas_por_habitacion <- r$nr_personas_hogar / as.numeric(as.character(r$nr_cuartos_total))
 r$v5_i <- ifelse(r$personas_por_habitacion <= 1,1,0)
-r$v5_ii <- ifelse(r$personas_por_habitacion > 1 & r$personas_por_habitacion < 2,1,0)
+r$v5_ii <- ifelse(r$personas_por_habitacion > 1 & r$personas_por_habitacion <= 2,1,0)
 r$v5_iii <- ifelse(r$personas_por_habitacion > 2,1,0)
+
+# % de hogares en los que hay mas de 2 personas por habitacion en que las personas duermen
+r$personas_por_habitacion_dormir <- r$nr_personas_hogar / as.numeric(as.character(r$nr_cuartos_duermen))
+r$v5_iv <- ifelse(r$personas_por_habitacion_dormir <= 1,1,0)
+r$v5_v <- ifelse(r$personas_por_habitacion_dormir > 1 & r$personas_por_habitacion_dormir <= 3,1,0)
+r$v5_vi <- ifelse(r$personas_por_habitacion_dormir > 3,1,0)
+
 
 
 # % de hogares que utilizan servicios de saneamiento mejorados
 r$v6 <- ifelse(r$tipo_servicio_sanitario %in% c("inodoro_conectado_a_alcantarillado", "inodoro_conectado_a_pozo_septico"),1,0)
 
 
-# % de hogares con fuentes de agua mejoradas
+# % de hogares con fuentes de agua no-mejoradas
 r$v7 <- ifelse(r$fuente_agua %in% c("aguas_lluvias", "de_pozo_sin_bomba__aljibe__jaguey_o_barreno", "rio__quebrada__nacimiento_o_manantial"),0,1)
+r$v7_i <- ifelse(r$fuente_agua == "agua_embotellada_o_en_bolsa",1,0)
+r$v7_ii <- ifelse(r$fuente_agua == "aguas_lluvias",1,0)
+r$v7_iii <- ifelse(r$fuente_agua == "aguatero",1,0)
+r$v7_iv <- ifelse(r$fuente_agua == "carrotanque",1,0)
+r$v7_v <- ifelse(r$fuente_agua == "de_acueducto_por_tuberia",1,0)
+r$v7_vi <- ifelse(r$fuente_agua == "de_otra_fuente_por_tuberia",1,0)
+r$v7_vii <- ifelse(r$fuente_agua == "rio__quebrada__nacimiento_o_manantial",1,0)
+
 
 
 # % de hogares que declaran que cocinan en una habitacion que solo se utiliza para cocinar
@@ -805,10 +1044,23 @@ r$v11 <- ifelse(r$bienes_celular == "no",1,0)
 
 # % de hogares que declaran que la tierra o arena es el material principal de los pisos de la vivienda
 r$v12 <- ifelse(r$material_pisos == "tierra__arena",1,0)
+r$v12_i <- ifelse(r$material_pisos == "baldosin__ladrillo__vinisol__otros_materiales_sinteticos",1,0)
+r$v12_ii <- ifelse(r$material_pisos == "cemento__gravilla",1,0)
+r$v12_iii <- ifelse(r$material_pisos == "madera_burda__tabla__tablon__otro_vegetal",1,0)
+r$v12_iv <- ifelse(r$material_pisos == "tierra__arena",1,0)
+
+
 
 
 # % de hogares que declaran que la lata u otros materiales improvisados son el material principal de sus paredes
 r$v13 <- ifelse(r$material_paredes_exteriores %in% c("zinc__tela__carton__latas__desechos__plastico", "cana__esterilla__otro_tipo_de_material_vegetal"),1,0)
+
+r$v13_i <- ifelse(r$material_paredes_exteriores == "adobe_o_tapia_pisada",1,0)
+r$v13_ii <- ifelse(r$material_paredes_exteriores == "bahareque",1,0)
+r$v13_iii <- ifelse(r$material_paredes_exteriores == "ladrillo__bloque__material_prefabricado__piedra",1,0)
+r$v13_iv <- ifelse(r$material_paredes_exteriores == "madera_burda__tabla__tablon",1,0)
+r$v13_v <- ifelse(r$material_paredes_exteriores == "madera_pulida",1,0)
+
 
 
 # % de hogares que declaran que la fuente principal de agua potable es el grifo publico o compartido, el pozo, el rio o el agua lluvia
@@ -831,6 +1083,51 @@ r$v17_iv <- ifelse(r$acuerdo_ocupacion == "otra",1,0)
 r$v17_v <- ifelse(r$acuerdo_ocupacion == "posesion_sin_titulo__ocupante_de_hecho__o_propiedad_colectiva",1,0)
 r$v17_vi <- ifelse(r$acuerdo_ocupacion == "propia__la_estan_pagando",1,0)
 r$v17_vii <- ifelse(r$acuerdo_ocupacion == "propia__totalmente_pagada",1,0)
+
+
+
+#% de hogares por activos productivos (zona rural)
+  r$elementos_productivos_animales_mayores <- ifelse(r$elementos_productivos_animales_mayores == "_", NA_real_,
+                                                   r$elementos_productivos_animales_mayores)
+  r$elementos_productivos_tierra_agricola <- ifelse(r$elementos_productivos_tierra_agricola == "_", NA_real_,
+                                                  r$elementos_productivos_tierra_agricola) 
+  r$elementos_productivos_herramientas <- ifelse(r$elementos_productivos_herramientas == "_", NA_real_, 
+                                               r$elementos_productivos_herramientas)
+  r$elementos_productivos_animales_menores <- ifelse(r$elementos_productivos_animales_menores == "_", NA_real_,
+                                                   r$elementos_productivos_animales_menores)
+  r$elementos_productivos_maquinaria <- ifelse(r$elementos_productivos_maquinaria == "_", NA_real_, 
+                                             r$elementos_productivos_maquinaria)
+
+
+r$v18_i <- ifelse(r$elementos_productivos_tierra_agricola == "si",1,0)
+r$v18_ii <- ifelse(r$elementos_productivos_herramientas == "si",1,0)
+r$v18_iii <- ifelse(r$elementos_productivos_animales_mayores == "si",1,0)
+r$v18_iv <- ifelse(r$elementos_productivos_animales_menores == "si",1,0)
+r$v18_v <- ifelse(r$elementos_productivos_maquinaria == "si",1,0)
+
+r$v18 <- ifelse(r$v18_i == 1 | r$v18_ii == 1 | r$v18_iii == 1 | r$v18_iv == 1 | r$v18_v == 1,1,0)
+
+r$v18_especies <- ifelse(r$v18_iii == 1 | r$v18_iv == 1,1,0)
+
+
+# % de hogares con diferentes tipos de bienes
+r$v19_i <- ifelse(r$bienes_celular == "si",1,0)
+r$v19_ii <- ifelse(r$bienes_colchon == "si",1,0)
+r$v19_iii <- ifelse(r$bienes_nevera == "si",1,0)
+r$v19_iv <- ifelse(r$bienes_cama == "si",1,0)
+r$v19_v <- ifelse(r$transporte_carro_particular == "si",1,0)
+r$v19_vi <- ifelse(r$transporte_motocicleta == "si",1,0)
+
+
+
+# % de hogares por material de su techo
+r$v20_i <- ifelse(r$material_techo == "cemento_concreto",1,0)
+r$v20_ii <- ifelse(r$material_techo == "ladrillos",1,0)
+r$v20_iii <- ifelse(r$material_techo == "madera_burda__tabla__tablon__otro_vegetal",1,0)
+r$v20_iv <- ifelse(r$material_techo == "paja_bambu_techo_de_paja",1,0)
+r$v20_v <- ifelse(r$material_techo == "tejas__barro__zinc__eternit_",1,0)
+
+
 
 
 ###############################################################
@@ -918,6 +1215,7 @@ r$d6 <- ifelse(r$presencia_0_59_meses == "si",1,0)
 
 # % de hogares en los que el jefe del hogar tiene una discapacidad
 r$d8 <- ifelse(r$discapacidad_jh == "con_discapacidad", 1, 0)
+r$d8_ii <- ifelse(r$discapacidad_jh == "sin_discapacidad", 1, 0)
 
 
 # % de hogares en los que el jefe del hogar padece una enfermedad cronica
@@ -979,6 +1277,19 @@ r <- loop %>%
 
 
 
+
+r <- loop %>% 
+  mutate(presencia_menos5 = ifelse(edad < 5 | edad_anos_meses == "meses",1,0)) %>%
+  group_by(registro) %>%
+  dplyr::summarise(nr_menos5 = sum(presencia_menos5)) %>%
+  
+  mutate(presencia_ninos_menos5 = ifelse(nr_menos5 > 0,1,0)) %>%
+  select(starts_with("presencia_ninos_menos5"), registro) %>%
+  right_join(r)
+
+
+
+
 r <- r %>% mutate(dependency_ratio = case_when(
   p4_i == 1 ~ "0", 
   p4_ii == 1 ~ "0-0.5",
@@ -1022,6 +1333,16 @@ r <- r %>% mutate(nivel_estudios_grupo = case_when(
 
 
 
+r$d17_i <- ifelse(r$estado_civil_jh == "esta_casado_a_",1,0)
+r$d17_ii <- ifelse(r$estado_civil_jh == "esta_separado_a__o_divorciado_a_",1,0)
+r$d17_iii <- ifelse(r$estado_civil_jh == "esta_soltero_a_",1,0)
+r$d17_iv <- ifelse(r$estado_civil_jh == "esta_viudo_a_",1,0)
+r$d17_v <- ifelse(r$estado_civil_jh == "vive_en_union_libre",1,0)
+
+
+r$d18_i <- ifelse(r$urbano_rural == "rural",1,0)
+r$d18_ii <- ifelse(r$urbano_rural == "urbano",1,0)
+
 
 ###############################################################
 # ASISTENCIA ESCOLAR
@@ -1032,10 +1353,257 @@ r <- r %>% mutate(nivel_estudios_grupo = case_when(
 #                r$ae2)
 
 
+r <- r %>% dplyr::mutate(rangos_gastos = case_when(
+  exp_pp < 50000 | is.na(exp_pp) ~ "menos_50", 
+  exp_pp >= 50000 & exp_pp < 100000 ~ "50_100", 
+  exp_pp >= 100000 & exp_pp < 200000 ~ "100_200",
+  exp_pp >= 200000 & exp_pp < 300000 ~ "200_300",
+  exp_pp >= 300000 & exp_pp < 400000 ~ "300_400",
+  exp_pp >= 400000 & exp_pp < 500000 ~ "400_500", 
+  exp_pp >= 500000 & exp_pp < 600000 ~ "500_600",
+  exp_pp >= 600000 & exp_pp < 700000 ~ "600_700",
+  exp_pp >= 700000 & exp_pp < 800000 ~ "700_800", 
+  exp_pp >= 800000 & exp_pp < 1000000 ~ "800_1000", 
+  exp_pp >= 1000000 ~ "mas_1000"))
 
 
 
 
+###############################################################
+# ANALYSIS DE VICTIMAS DEL CONFLICTO
+###############################################################
+r[r$afectado_conflicto == "no", grepl("^afectado_conflicto_", colnames(r))] <- NA
+
+
+r$afc_2012 <- ifelse(r$afectado_conflicto_confinamiento_cuando == "2012" | r$afectado_conflicto_desparicion_cuando == "2012" | r$afectado_conflicto_desplazamiento_cuando == "2012" | 
+                     r$afectado_conflicto_homicidio_cuando == "2012" | r$afectado_conflicto_integridad_sexual_cuando == "2012" | r$afectado_conflicto_lesiones_discapacidad_cuando == "2012" | 
+                     r$afectado_conflicto_masacre_cuando == "2012" | r$afectado_conflicto_recrutamiento_menores_cuando == "2012" | r$afectado_conflicto_secuestro_cuando == "2012" |
+                     r$afectado_conflicto_tortura_cuando == "2012",1, 0)
+
+r$afc_2013 <- ifelse(r$afectado_conflicto_confinamiento_cuando == "2013" | r$afectado_conflicto_desparicion_cuando == "2013" | r$afectado_conflicto_desplazamiento_cuando == "2013" | 
+                     r$afectado_conflicto_homicidio_cuando == "2013" | r$afectado_conflicto_integridad_sexual_cuando == "2013" | r$afectado_conflicto_lesiones_discapacidad_cuando == "2013" | 
+                     r$afectado_conflicto_masacre_cuando == "2013" | r$afectado_conflicto_recrutamiento_menores_cuando == "2013" | r$afectado_conflicto_secuestro_cuando == "2013" |
+                     r$afectado_conflicto_tortura_cuando == "2013",1,0)
+
+r$afc_2014 <- ifelse(r$afectado_conflicto_confinamiento_cuando == "2014" | r$afectado_conflicto_desparicion_cuando == "2014" | r$afectado_conflicto_desplazamiento_cuando == "2014" | 
+                     r$afectado_conflicto_homicidio_cuando == "2014" | r$afectado_conflicto_integridad_sexual_cuando == "2014" | r$afectado_conflicto_lesiones_discapacidad_cuando == "2014" | 
+                     r$afectado_conflicto_masacre_cuando == "2014" | r$afectado_conflicto_recrutamiento_menores_cuando == "2014" | r$afectado_conflicto_secuestro_cuando == "2014" |
+                     r$afectado_conflicto_tortura_cuando == "2014",1,0)
+
+r$afc_2015 <- ifelse(r$afectado_conflicto_confinamiento_cuando == "2015" | r$afectado_conflicto_desparicion_cuando == "2015" | r$afectado_conflicto_desplazamiento_cuando == "2015" | 
+                     r$afectado_conflicto_homicidio_cuando == "2015" | r$afectado_conflicto_integridad_sexual_cuando == "2015" | r$afectado_conflicto_lesiones_discapacidad_cuando == "2015" | 
+                     r$afectado_conflicto_masacre_cuando == "2015" | r$afectado_conflicto_recrutamiento_menores_cuando == "2015" | r$afectado_conflicto_secuestro_cuando == "2015" |
+                     r$afectado_conflicto_tortura_cuando == "2015",1,0)
+
+r$afc_2016 <- ifelse(r$afectado_conflicto_confinamiento_cuando == "2016" | r$afectado_conflicto_desparicion_cuando == "2016" | r$afectado_conflicto_desplazamiento_cuando == "2016" | 
+                     r$afectado_conflicto_homicidio_cuando == "2016" | r$afectado_conflicto_integridad_sexual_cuando == "2016" | r$afectado_conflicto_lesiones_discapacidad_cuando == "2016" | 
+                     r$afectado_conflicto_masacre_cuando == "2016" | r$afectado_conflicto_recrutamiento_menores_cuando == "2016" | r$afectado_conflicto_secuestro_cuando == "2016" |
+                     r$afectado_conflicto_tortura_cuando == "2016",1,0)
+
+r$afc_2017 <- ifelse(r$afectado_conflicto_confinamiento_cuando == "2017" | r$afectado_conflicto_desparicion_cuando == "2017" | r$afectado_conflicto_desplazamiento_cuando == "2017" | 
+                     r$afectado_conflicto_homicidio_cuando == "2017" | r$afectado_conflicto_integridad_sexual_cuando == "2017" | r$afectado_conflicto_lesiones_discapacidad_cuando == "2017" | 
+                     r$afectado_conflicto_masacre_cuando == "2017" | r$afectado_conflicto_recrutamiento_menores_cuando == "2017" | r$afectado_conflicto_secuestro_cuando == "2017" |
+                     r$afectado_conflicto_tortura_cuando == "2017",1,0)
+
+r$afc_2018 <- ifelse(r$afectado_conflicto_confinamiento_cuando == "2018" | r$afectado_conflicto_desparicion_cuando == "2018" | r$afectado_conflicto_desplazamiento_cuando == "2018" | 
+                     r$afectado_conflicto_homicidio_cuando == "2018" | r$afectado_conflicto_integridad_sexual_cuando == "2018" | r$afectado_conflicto_lesiones_discapacidad_cuando == "2018" | 
+                     r$afectado_conflicto_masacre_cuando == "2018" | r$afectado_conflicto_recrutamiento_menores_cuando == "2018" | r$afectado_conflicto_secuestro_cuando == "2018" |
+                     r$afectado_conflicto_tortura_cuando == "2018",1,0)
+
+r$afc_2019 <- ifelse(r$afectado_conflicto_confinamiento_cuando == "2019" | r$afectado_conflicto_desparicion_cuando == "2019" | r$afectado_conflicto_desplazamiento_cuando == "2019" | 
+                     r$afectado_conflicto_homicidio_cuando == "2019" | r$afectado_conflicto_integridad_sexual_cuando == "2019" | r$afectado_conflicto_lesiones_discapacidad_cuando == "2019" | 
+                     r$afectado_conflicto_masacre_cuando == "2019" | r$afectado_conflicto_recrutamiento_menores_cuando == "2019" | r$afectado_conflicto_secuestro_cuando == "2019" |
+                     r$afectado_conflicto_tortura_cuando == "2019",1,0)
+
+r$afc_2020 <- ifelse(r$afectado_conflicto_confinamiento_cuando == "2020" | r$afectado_conflicto_desparicion_cuando == "2020" | r$afectado_conflicto_desplazamiento_cuando == "2020" | 
+                     r$afectado_conflicto_homicidio_cuando == "2020" | r$afectado_conflicto_integridad_sexual_cuando == "2020" | r$afectado_conflicto_lesiones_discapacidad_cuando == "2020" | 
+                     r$afectado_conflicto_masacre_cuando == "2020" | r$afectado_conflicto_recrutamiento_menores_cuando == "2020" | r$afectado_conflicto_secuestro_cuando == "2020" |
+                     r$afectado_conflicto_tortura_cuando == "2020",1,0)
+
+r$afc_2021 <- ifelse(r$afectado_conflicto_confinamiento_cuando == "2021" | r$afectado_conflicto_desparicion_cuando == "2021" | r$afectado_conflicto_desplazamiento_cuando == "2021" | 
+                     r$afectado_conflicto_homicidio_cuando == "2021" | r$afectado_conflicto_integridad_sexual_cuando == "2021" | r$afectado_conflicto_lesiones_discapacidad_cuando == "2021" | 
+                     r$afectado_conflicto_masacre_cuando == "2021" | r$afectado_conflicto_recrutamiento_menores_cuando == "2021" | r$afectado_conflicto_secuestro_cuando == "2021" |
+                     r$afectado_conflicto_tortura_cuando == "2021",1,0)
+
+r$afc_2022 <- ifelse(r$afectado_conflicto_confinamiento_cuando == "2022" | r$afectado_conflicto_desparicion_cuando == "2022" | r$afectado_conflicto_desplazamiento_cuando == "2022" | 
+                     r$afectado_conflicto_homicidio_cuando == "2022" | r$afectado_conflicto_integridad_sexual_cuando == "2022" | r$afectado_conflicto_lesiones_discapacidad_cuando == "2022" | 
+                     r$afectado_conflicto_masacre_cuando == "2022" | r$afectado_conflicto_recrutamiento_menores_cuando == "2022" | r$afectado_conflicto_secuestro_cuando == "2022" |
+                     r$afectado_conflicto_tortura_cuando == "2022",1,0)
+
+
+
+r <- r %>% mutate(ano_afectado_conflicto = case_when(
+  r$afc_2012 == 1  ~ "2012",
+  r$afc_2013 == 1  ~ "2013",
+  r$afc_2014 == 1  ~ "2014",
+  r$afc_2015 == 1  ~ "2015",
+  r$afc_2016 == 1  ~ "2016",
+  r$afc_2017 == 1  ~ "2017",
+  r$afc_2018 == 1  ~ "2018",
+  r$afc_2019 == 1  ~ "2019",
+  r$afc_2020 == 1  ~ "2020",
+  r$afc_2021 == 1  ~ "2021",
+  r$afc_2022 == 1  ~ "2022", 
+  r$afectado_conflicto == "no" ~ "ningun_afectacion", 
+  TRUE ~ "ningun_afectacion"
+  
+))
+
+
+r$afc_i <- ifelse(r$afectado_conflicto_confinamiento == "si",1,0)
+r$afc_ii <- ifelse(r$afectado_conflicto_desparicion == "si",1,0)
+r$afc_iii <- ifelse(r$afectado_conflicto_desplazamiento == "si",1,0)
+r$afc_iv <- ifelse(r$afectado_conflicto_homicidio == "si",1,0)
+r$afc_v <- ifelse(r$afectado_conflicto_integridad_sexual == "si",1,0)
+r$afc_vi <- ifelse(r$afectado_conflicto_lesiones_discapacidad == "si",1,0)
+r$afc_vii <- ifelse(r$afectado_conflicto_masacre == "si",1,0)
+r$afc_viii <- ifelse(r$afectado_conflicto_recrutamiento_menores == "si",1,0)
+r$afc_ix <- ifelse(r$afectado_conflicto_secuestro == "si",1,0)
+r$afc_x <- ifelse(r$afectado_conflicto_tortura == "si",1,0)
+
+
+r <- r %>% mutate(tipo_afectacion_conflicto = case_when(
+  r$afc_i == 1  ~ "confinamiento",
+  r$afc_ii == 1  ~ "desparacion",
+  r$afc_iii == 1  ~ "desplazamiento",
+  r$afc_iv == 1  ~ "homicidio",
+  r$afc_v == 1  ~ "integridad_sexual",
+  r$afc_vi == 1  ~ "lesiones_discapacidad",
+  r$afc_vii == 1  ~ "masacre",
+  r$afc_viii == 1  ~ "recrutamiento_menores",
+  r$afc_ix == 1  ~ "secuestro",
+  r$afc_x == 1  ~ "tortura", 
+  r$afectado_conflicto == "no" ~ "ningun_afectacion", 
+  TRUE ~ "ningun_afectacion"
+  
+))
+
+
+#r$tipo_afectacion_conflicto <- ifelse(rowSums(r[, c("afc_i", "afc_ii", "afc_iii", "afc_iv", 
+#                                                    "afc_v", "afc_vi", "afc_vii", "afc_viii", 
+#                                                    "afc_ix", "afc_x")]) > 1, "multiples_afectaciones", 
+#                                                    r$tipo_afectacion_conflicto)
+
+
+
+
+
+###############################################################
+# ANALYSIS DE VICTIMAS DE DESASTRES NATURALES
+###############################################################
+r[r$afectado_desastre_natural == "no", grepl("^afectado_desastre_natural_", colnames(r))] <- NA
+
+r$afd_2012 <- ifelse(r$afectado_desastre_natural_creciente_subita_cuando == "2012" | r$afectado_desastre_natural_deslizamientos_tierra_cuando == "2012" | r$afectado_desastre_natural_huracan_cuando == "2012" | 
+                       r$afectado_desastre_natural_inundaciones_cuando == "2012" | r$afectado_desastre_natural_otro_cuando == "2012" | r$afectado_desastre_natural_sequias_cuando == "2012" | 
+                       r$afectado_desastre_natural_sismos_cuando == "2012" | r$afectado_desastre_natural_terremotos_cuando == "2012" | r$afectado_desastre_natural_tormenta_tropical_cuando == "2012" |
+                       r$afectado_desastre_natural_vendaval_cuando == "2012",1,0)
+
+r$afd_2013 <- ifelse(r$afectado_desastre_natural_creciente_subita_cuando == "2013" | r$afectado_desastre_natural_deslizamientos_tierra_cuando == "2013" | r$afectado_desastre_natural_huracan_cuando == "2013" | 
+                       r$afectado_desastre_natural_inundaciones_cuando == "2013" | r$afectado_desastre_natural_otro_cuando == "2013" | r$afectado_desastre_natural_sequias_cuando == "2013" | 
+                       r$afectado_desastre_natural_sismos_cuando == "2013" | r$afectado_desastre_natural_terremotos_cuando == "2013" | r$afectado_desastre_natural_tormenta_tropical_cuando == "2013" |
+                       r$afectado_desastre_natural_vendaval_cuando == "2013",1,0)
+
+r$afd_2014 <- ifelse(r$afectado_desastre_natural_creciente_subita_cuando == "2014" | r$afectado_desastre_natural_deslizamientos_tierra_cuando == "2014" | r$afectado_desastre_natural_huracan_cuando == "2014" | 
+                       r$afectado_desastre_natural_inundaciones_cuando == "2014" | r$afectado_desastre_natural_otro_cuando == "2014" | r$afectado_desastre_natural_sequias_cuando == "2014" | 
+                       r$afectado_desastre_natural_sismos_cuando == "2014" | r$afectado_desastre_natural_terremotos_cuando == "2014" | r$afectado_desastre_natural_tormenta_tropical_cuando == "2014" |
+                       r$afectado_desastre_natural_vendaval_cuando == "2014",1,0)
+
+r$afd_2015 <- ifelse(r$afectado_desastre_natural_creciente_subita_cuando == "2015" | r$afectado_desastre_natural_deslizamientos_tierra_cuando == "2015" | r$afectado_desastre_natural_huracan_cuando == "2015" | 
+                       r$afectado_desastre_natural_inundaciones_cuando == "2015" | r$afectado_desastre_natural_otro_cuando == "2015" | r$afectado_desastre_natural_sequias_cuando == "2015" | 
+                       r$afectado_desastre_natural_sismos_cuando == "2015" | r$afectado_desastre_natural_terremotos_cuando == "2015" | r$afectado_desastre_natural_tormenta_tropical_cuando == "2015" |
+                       r$afectado_desastre_natural_vendaval_cuando == "2015",1,0)
+
+r$afd_2016 <- ifelse(r$afectado_desastre_natural_creciente_subita_cuando == "2016" | r$afectado_desastre_natural_deslizamientos_tierra_cuando == "2016" | r$afectado_desastre_natural_huracan_cuando == "2016" | 
+                       r$afectado_desastre_natural_inundaciones_cuando == "2016" | r$afectado_desastre_natural_otro_cuando == "2016" | r$afectado_desastre_natural_sequias_cuando == "2016" | 
+                       r$afectado_desastre_natural_sismos_cuando == "2016" | r$afectado_desastre_natural_terremotos_cuando == "2016" | r$afectado_desastre_natural_tormenta_tropical_cuando == "2016" |
+                       r$afectado_desastre_natural_vendaval_cuando == "2016",1,0)
+
+r$afd_2017 <- ifelse(r$afectado_desastre_natural_creciente_subita_cuando == "2017" | r$afectado_desastre_natural_deslizamientos_tierra_cuando == "2017" | r$afectado_desastre_natural_huracan_cuando == "2017" | 
+                       r$afectado_desastre_natural_inundaciones_cuando == "2017" | r$afectado_desastre_natural_otro_cuando == "2017" | r$afectado_desastre_natural_sequias_cuando == "2017" | 
+                       r$afectado_desastre_natural_sismos_cuando == "2017" | r$afectado_desastre_natural_terremotos_cuando == "2017" | r$afectado_desastre_natural_tormenta_tropical_cuando == "2017" |
+                       r$afectado_desastre_natural_vendaval_cuando == "2017",1,0)
+
+r$afd_2018 <- ifelse(r$afectado_desastre_natural_creciente_subita_cuando == "2018" | r$afectado_desastre_natural_deslizamientos_tierra_cuando == "2018" | r$afectado_desastre_natural_huracan_cuando == "2018" | 
+                       r$afectado_desastre_natural_inundaciones_cuando == "2018" | r$afectado_desastre_natural_otro_cuando == "2018" | r$afectado_desastre_natural_sequias_cuando == "2018" | 
+                       r$afectado_desastre_natural_sismos_cuando == "2018" | r$afectado_desastre_natural_terremotos_cuando == "2018" | r$afectado_desastre_natural_tormenta_tropical_cuando == "2018" |
+                       r$afectado_desastre_natural_vendaval_cuando == "2018",1,0)
+
+r$afd_2019 <- ifelse(r$afectado_desastre_natural_creciente_subita_cuando == "2019" | r$afectado_desastre_natural_deslizamientos_tierra_cuando == "2019" | r$afectado_desastre_natural_huracan_cuando == "2019" | 
+                       r$afectado_desastre_natural_inundaciones_cuando == "2019" | r$afectado_desastre_natural_otro_cuando == "2019" | r$afectado_desastre_natural_sequias_cuando == "2019" | 
+                       r$afectado_desastre_natural_sismos_cuando == "2019" | r$afectado_desastre_natural_terremotos_cuando == "2019" | r$afectado_desastre_natural_tormenta_tropical_cuando == "2019" |
+                       r$afectado_desastre_natural_vendaval_cuando == "2019",1,0)
+
+r$afd_2020 <- ifelse(r$afectado_desastre_natural_creciente_subita_cuando == "2020" | r$afectado_desastre_natural_deslizamientos_tierra_cuando == "2020" | r$afectado_desastre_natural_huracan_cuando == "2020" | 
+                       r$afectado_desastre_natural_inundaciones_cuando == "2020" | r$afectado_desastre_natural_otro_cuando == "2020" | r$afectado_desastre_natural_sequias_cuando == "2020" | 
+                       r$afectado_desastre_natural_sismos_cuando == "2020" | r$afectado_desastre_natural_terremotos_cuando == "2020" | r$afectado_desastre_natural_tormenta_tropical_cuando == "2020" |
+                       r$afectado_desastre_natural_vendaval_cuando == "2020",1,0)
+
+r$afd_2021 <- ifelse(r$afectado_desastre_natural_creciente_subita_cuando == "2021" | r$afectado_desastre_natural_deslizamientos_tierra_cuando == "2021" | r$afectado_desastre_natural_huracan_cuando == "2021" | 
+                       r$afectado_desastre_natural_inundaciones_cuando == "2021" | r$afectado_desastre_natural_otro_cuando == "2021" | r$afectado_desastre_natural_sequias_cuando == "2021" | 
+                       r$afectado_desastre_natural_sismos_cuando == "2021" | r$afectado_desastre_natural_terremotos_cuando == "2021" | r$afectado_desastre_natural_tormenta_tropical_cuando == "2021" |
+                       r$afectado_desastre_natural_vendaval_cuando == "2021",1,0)
+
+r$afd_2022 <- ifelse(r$afectado_desastre_natural_creciente_subita_cuando == "2022" | r$afectado_desastre_natural_deslizamientos_tierra_cuando == "2022" | r$afectado_desastre_natural_huracan_cuando == "2022" | 
+                       r$afectado_desastre_natural_inundaciones_cuando == "2022" | r$afectado_desastre_natural_otro_cuando == "2022" | r$afectado_desastre_natural_sequias_cuando == "2022" | 
+                       r$afectado_desastre_natural_sismos_cuando == "2022" | r$afectado_desastre_natural_terremotos_cuando == "2022" | r$afectado_desastre_natural_tormenta_tropical_cuando == "2022" |
+                       r$afectado_desastre_natural_vendaval_cuando == "2022",1,0)
+
+
+
+r <- r %>% mutate(ano_afectado_desastres_naturales = case_when(
+  r$afd_2012 == 1  ~ "2012",
+  r$afd_2013 == 1  ~ "2013",
+  r$afd_2014 == 1  ~ "2014",
+  r$afd_2015 == 1  ~ "2015",
+  r$afd_2016 == 1  ~ "2016",
+  r$afd_2017 == 1  ~ "2017",
+  r$afd_2018 == 1  ~ "2018",
+  r$afd_2019 == 1  ~ "2019",
+  r$afd_2020 == 1  ~ "2020",
+  r$afd_2021 == 1  ~ "2021",
+  r$afd_2022 == 1  ~ "2022", 
+  r$afectado_desastre_natural == "no" ~ "ningun_afectacion", 
+  TRUE ~ "ningun_afectacion"
+  
+))
+
+
+
+r$afd_i <- ifelse(r$afectado_desastre_natural_creciente_subita == "si",1,0)
+r$afd_ii <- ifelse(r$afectado_desastre_natural_deslizamientos_tierra == "si",1,0)
+r$afd_iii <- ifelse(r$afectado_desastre_natural_huracan == "si",1,0)
+r$afd_iv <- ifelse(r$afectado_desastre_natural_inundaciones == "si",1,0)
+r$afd_v <- ifelse(r$afectado_desastre_natural_otro == "si",1,0)
+r$afd_vi <- ifelse(r$afectado_desastre_natural_sequias == "si",1,0)
+r$afd_vii <- ifelse(r$afectado_desastre_natural_sismos == "si",1,0)
+r$afd_viii <- ifelse(r$afectado_desastre_natural_terremotos == "si",1,0)
+r$afd_ix <- ifelse(r$afectado_desastre_natural_tormenta_tropical == "si",1,0)
+r$afd_x <- ifelse(r$afectado_desastre_natural_vendaval == "si",1,0)
+
+
+
+
+r <- r %>% mutate(tipo_afectacion_desastres_naturales = case_when(
+  r$afd_i == 1  ~ "creciente_subita",
+  r$afd_ii == 1  ~ "deslizamientos_tierra",
+  r$afd_iii == 1  ~ "huracan",
+  r$afd_iv == 1  ~ "inundaciones",
+  r$afd_v == 1  ~ "otro",
+  r$afd_vi == 1  ~ "sequias",
+  r$afd_vii == 1  ~ "sismos",
+  r$afd_viii == 1  ~ "terremotos",
+  r$afd_ix == 1  ~ "tormenta_tropical",
+  r$afd_x == 1  ~ "vendaval", 
+  r$afectado_desastre_natural == "no" ~ "ningun_afectacion", 
+  TRUE ~ "ningun_afectacion"
+  
+))
+
+
+#r$tipo_afectacion_desastres_naturales <- ifelse(rowSums(r[, c("afd_i", "afd_ii", "afd_iii", "afd_iv", 
+#                                                    "afd_v", "afd_vi", "afd_vii", "afd_viii", 
+#                                                    "afd_ix", "afd_x")]) > 1, "multiples_afectaciones", 
+#                                      r$tipo_afectacion_desastres_naturales)
 
 
 

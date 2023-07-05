@@ -12,6 +12,10 @@ seguridad_alimentaria;% de hogares por Coping Strategies Index Score;fase_3;depa
 seguridad_alimentaria;% de hogares por puntaje vulnerabilidad economica de CARI;1;departamento;;categorical;sa6_i;numerical;direct_reporting
 seguridad_alimentaria;% de hogares por puntaje vulnerabilidad economica de CARI;3;departamento;;categorical;sa6_iii;numerical;direct_reporting
 seguridad_alimentaria;% de hogares por puntaje vulnerabilidad economica de CARI;4;departamento;;categorical;sa6_iv;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por puntaje LCS;1;departamento;;categorical;salcs_i;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por puntaje LCS;2;departamento;;categorical;salcs_ii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por puntaje LCS;3;departamento;;categorical;salcs_iii;numerical;direct_reporting
+seguridad_alimentaria;% de hogares por puntaje LCS;4;departamento;;categorical;salcs_iv;numerical;direct_reporting
 seguridad_alimentaria;% de hogares que recurren a estrategias de stress/crisis/emergency para hacer frente a la falta de alimentos o de dinero para comprar alimentos;Stress;departamento;;categorical;sa7_stress;numerical;direct_reporting
 seguridad_alimentaria;% de hogares que recurren a estrategias de stress/crisis/emergency para hacer frente a la falta de alimentos o de dinero para comprar alimentos;Crisis;departamento;;categorical;sa7_crisis;numerical;direct_reporting
 seguridad_alimentaria;% de hogares que recurren a estrategias de stress/crisis/emergency para hacer frente a la falta de alimentos o de dinero para comprar alimentos;Emergency;departamento;;categorical;sa7_emergency;numerical;direct_reporting
